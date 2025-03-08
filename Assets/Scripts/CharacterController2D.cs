@@ -82,7 +82,6 @@ public class CharacterController2D : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-
     private void FixedUpdate()
     {
         ManageMovement();
