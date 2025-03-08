@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.adrikat.toolkit": {
-      "version": "git@github.com:AdriKat2022/ToolkitUnityPackage.git",
+      "version": "https://github.com/AdriKat2022/ToolkitUnityPackage.git",
       "depth": 0,
       "source": "git",
       "dependencies": {

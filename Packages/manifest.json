@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.adrikat.toolkit": "git@github.com:AdriKat2022/ToolkitUnityPackage.git",
+    "com.adrikat.toolkit": "https://github.com/AdriKat2022/ToolkitUnityPackage.git",
     "com.crafteurmax.knitting": "https://github.com/Crafteurmax/Knitting.git",
     "com.unity.cinemachine": "2.9.7",
     "com.unity.feature.2d": "2.0.0",
