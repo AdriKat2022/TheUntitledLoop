@@ -38,7 +38,8 @@ public class CharacterController2D : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         // Draw a straight line on the X axis
-        Gizmos.DrawLine(transform.position + );
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(transform.position + Vector3.left * 1000, transform.position + Vector3.right * 1000);
     }
 
     #endregion
