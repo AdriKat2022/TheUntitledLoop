@@ -1,5 +1,6 @@
 using AdriKat.Toolkit.Attributes;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -34,6 +35,8 @@ public class CharacterController2D : MonoBehaviour
 
     public string name;
     public string zone;
+    public List<inputHistory> history = new List<inputHistory>();
+    private float lastInputTime;
     #endregion
 
     #region Gizmos
@@ -73,6 +76,21 @@ public class CharacterController2D : MonoBehaviour
         {
             _currentHorizontalInput = 0;
         }
+
+        inputHistory lastOne = history[^1];
+        lastOne.time = Time.time - lastInputTime;
+        history[^1] = lastOne;
+
+        history.Add(new inputHistory(0f, _currentHorizontalInput));
+        lastInputTime = Time.time;
+
+    }
+
+    public void ResetHistory()
+    {
+        history.Clear();
+        history.Add(new inputHistory(0f, 0f));
+        lastInputTime = Time.time;
     }
 
     #endregion
@@ -80,6 +98,11 @@ public class CharacterController2D : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        ResetHistory();
     }
 
     private void FixedUpdate()
