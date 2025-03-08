@@ -33,6 +33,22 @@ public class CursorSettings : MonoBehaviour
         }
     }
 
+    public void ToogleCursorVisibility(bool visibility)
+    {
+        Cursor.visible = visibility;
+    }
+
+    public void ToogleCursorOverlay(bool visibility)
+    {
+        cursorOverlayInstance.gameObject.SetActive(visibility);
+    }
+
+    public void ToogleCustomCursor(bool visibility)
+    {
+        ToogleCursorOverlay(visibility);
+        ToogleCursorVisibility(!visibility);
+    }
+
     public void ApplySettings()
     {
         Cursor.lockState = lockMode;

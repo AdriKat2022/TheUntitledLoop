@@ -13,16 +13,22 @@ public class VolumeSlider : MonoBehaviour
     [SerializeField] private AudioMixer audioMixer;
 
     [Header("Icons")]
+    [SerializeField] bool useVolumeIcons;
+    [ShowIf(nameof(useVolumeIcons))]
+    [SerializeField] private Image volumeIcon;
+    [ShowIf(nameof(useVolumeIcons))]
     [SerializeField] private Sprite highVolumeIcon;
+    [ShowIf(nameof(useVolumeIcons))]
     [SerializeField] private Sprite mediumVolumeIcon;
+    [ShowIf(nameof(useVolumeIcons))]
     [SerializeField] private Sprite lowVolumeIcon;
+    [ShowIf(nameof(useVolumeIcons))]
     [SerializeField] private Sprite noVolumeIcon;
 
-    [Header("Intern Object")]
+    [Header("Other References")]
     [SerializeField] private Slider slider;
     [SerializeField] private TextMeshProUGUI nameTextMesh;
     [SerializeField] private TextMeshProUGUI valueTextMesh;
-    [SerializeField] private Image volumeIcon;
 
     private bool volumeActive = true;
     private float previousValue;
@@ -42,19 +48,21 @@ public class VolumeSlider : MonoBehaviour
         previousValue = slider.value;
 
         UpdateMixerValue();
+
+        slider.onValueChanged.AddListener(SliderUpdate);
     }
 
-    public void SliderUpdate()
+    public void SliderUpdate(float sliderValue)
     {
         // Save into PlayerPrefs
-        if (slider.value > previousValue)
+        if (sliderValue > previousValue)
         {
             volumeActive = true;
             PlayerPrefs.SetInt(audioMixerParameter + "_active", 1);
         }
-        PlayerPrefs.SetFloat(audioMixerParameter, slider.value);
+        PlayerPrefs.SetFloat(audioMixerParameter, sliderValue);
         PlayerPrefs.Save();
-        previousValue = slider.value;
+        previousValue = sliderValue;
 
         UpdateMixerValue();
     }
@@ -82,7 +90,10 @@ public class VolumeSlider : MonoBehaviour
             audioMixer.SetFloat(audioMixerParameter, 20f * Mathf.Log10(slider.minValue));
         }
 
-        valueTextMesh.text = ((int)(100 * slider.value)).ToString();
+        if (valueTextMesh != null)
+        {
+            valueTextMesh.text = ((int)(100 * slider.value)).ToString();
+        }
 
         UpdateSliderIcon();
     }
@@ -101,7 +112,13 @@ public class VolumeSlider : MonoBehaviour
 
     private void UpdateSliderIcon()
     {
-        if (slider == null || volumeIcon == null) return;
+        if (slider == null || !useVolumeIcons) return;
+
+        if (volumeIcon != null)
+        {
+            Debug.LogWarning("No volume icon referenced.", gameObject);
+            return;
+        }
 
         if (volumeActive && slider.value > slider.minValue)
         {
@@ -129,15 +146,22 @@ public class VolumeSlider : MonoBehaviour
     private void OnValidate()
     {
         if (Selection.activeGameObject != gameObject) return;
-        if (audioMixer == null || nameTextMesh == null) return;
 
-        nameTextMesh.text = sliderName;
-
-        bool test = audioMixer.GetFloat(audioMixerParameter, out float mixerValue);
-        if (test)
+        if (nameTextMesh != null)
         {
-            Debug.Log("Parameter value : " + mixerValue);
+            nameTextMesh.text = sliderName;
         }
+
+        if (audioMixer == null)
+        {
+
+            bool test = audioMixer.GetFloat(audioMixerParameter, out float mixerValue);
+            if (test)
+            {
+                Debug.Log("Parameter value : " + mixerValue);
+            }
+        }
+
         UpdateSliderIcon();
     }
 #endif
@@ -147,7 +171,11 @@ public class VolumeSlider : MonoBehaviour
     private void FindReferencesInChildren()
     {
         slider = GetComponentInChildren<Slider>();
-        volumeIcon = GetComponentInChildren<Image>();
+
+        if (useVolumeIcons)
+        {
+            volumeIcon = GetComponentInChildren<Image>();
+        }
 
         TextMeshProUGUI[] texts = GetComponentsInChildren<TextMeshProUGUI>();
 
