@@ -11,8 +11,10 @@ public class Zone : MonoBehaviour
         if(collision.gameObject.TryGetComponent<CharacterController2D>(out CharacterController2D controller)) controller.zone = zoneName;
     }
 
+    /*
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.gameObject.TryGetComponent<CharacterController2D>(out CharacterController2D controller)) controller.zone = null;
     }
+    */
 }
