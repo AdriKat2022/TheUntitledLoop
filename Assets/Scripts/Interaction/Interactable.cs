@@ -31,6 +31,7 @@ public class Interactable : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaa");
         if (collision.TryGetComponent(out CharacterInteraction interaction))
         {
             interaction.SetInteractable(null);

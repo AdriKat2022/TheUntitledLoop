@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -53,6 +54,23 @@ public class ResetLoop : MonoBehaviour
     private void DisableUnwantedPnj()
     {
         deplacements[currentCharacter].gameObject.SetActive(false);
+    }
+
+    public void GoToNextLoop(Action action)
+    {
+        foreach (KeyValuePair<string,PnjDeplacement> kpv in deplacements) kpv.Value.gameObject.SetActive(true);
+
+        SaveHistory();
+        playerController.ResetHistory();
+
+        currentCharacter = nextChar();
+
+        ResetPosition();
+        LaunchReplay();
+        DisableUnwantedPnj();
+
+        action.Invoke();
+
     }
 
     [ContextMenu("NextLoop")]

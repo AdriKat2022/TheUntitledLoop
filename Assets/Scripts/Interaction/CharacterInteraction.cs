@@ -28,9 +28,9 @@ public class CharacterInteraction : MonoBehaviour
 
         if (_currentInteractable != null)
         {
-            _currentInteractable.Interact(EndInteractionCallback);
             _isInteracting = true;
             _interactionHint.SetBool("InInteraction", true);
+            _currentInteractable.Interact(EndInteractionCallback);
         }
     }
 
