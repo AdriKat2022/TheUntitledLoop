@@ -16,7 +16,7 @@ public class DialogueStarter : MonoBehaviour
 
     [ShowIf(nameof(_lockPlayerMovmement), disableInsteadOfHidding: false)]
     [ShowIf(nameof(_useTag), disableInsteadOfHidding: false, invert: false)]
-    [SerializeField] private string _playerTag;
+    [SerializeField] private string _playerTag = "Player";
 
     [Space]
 
