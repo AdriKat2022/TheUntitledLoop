@@ -31,6 +31,9 @@ public class CharacterController2D : MonoBehaviour
 
     private Rigidbody2D _rigidbody;
     private float _currentHorizontalInput;
+
+    public string name;
+    public string zone;
     #endregion
 
     #region Gizmos

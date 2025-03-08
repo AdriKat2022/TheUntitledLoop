@@ -20,15 +20,15 @@ Enfant
 
 
 
+:: Ce_Ce_Exte {"position":"600,500","size":"100,100"}
+
+
+
 :: Ce_Ce_Secu {"position":"700,500","size":"100,100"}
 
 
 
 :: Ce_Ce_Tableau {"position":"800,500","size":"100,100"}
-
-
-
-:: Ce_Ce_exte {"position":"600,500","size":"100,100"}
 
 
 
@@ -94,16 +94,16 @@ Il fait beau, je suis content que tu ai amené tes élèves voir cette expositio
 Vous allez retrouver le tableau n'est ce pas ? Comment quelqu'un peut oser faire ca a une artiste aussi talentueuse que toi !!!!!!!!! Il merite la prison a vie !!!!!!!!!
 
 
+:: E_Ce_Exte {"position":"100,100","size":"100,100"}
+Vous avez l'air plus joyeux. Comme dans le chapitre 3 du tome deux de
+
+
 :: E_Ce_Secu {"position":"200,100","size":"100,100"}
 Ouaaaaaaah un garde du corps comme dans JaJa's bizarre adventure !!!! Troooooop cooool. En même temps, t'es tellement connue, t'es trop forte !
 
 
 :: E_Ce_Tableau {"position":"300,100","size":"100,100"}
 Le dessin il est pas beaaaaauuuuu, dit tu veux pas le refaire en moins moooche ?
-
-
-:: E_Ce_exte {"position":"100,100","size":"100,100"}
-Vous avez l'air plus joyeux. Comme dans le chapitre 3 du tome deux de
 
 
 :: E_Ch_Crime {"position":"400,300","size":"100,100"}
@@ -163,16 +163,16 @@ Dit monsieurs, Qu'est ce qui est jaune et qui atteeeeend ??? Le citron dans le t
 (else:)[J'avoue tout !!! C'est moi ai volé ton tableau,je rend compte que tu es quelqu'un de bien, le succes ne t'a pas changé, c'est moi qui étais jaloux de ton succes, pardonne moi ]
 
 
+:: P_Ce_Exte {"position":"1100,100","size":"100,100"}
+Tu t'es enfin décidé à descendre de ta tour d'ivoir ?
+
+
 :: P_Ce_Secu {"position":"1200,100","size":"100,100"}
 Es-tu certain que ce garde soit vraiment compétent ? Sinon, comment ton tableau aurait-il pu disparaître ?
 
 
 :: P_Ce_Tableau {"position":"1300,100","size":"100,100"}
 C'était notre tableau préféré... (if: $isHappy is "false")[Avant que le succes ne te monte à la tête...]
-
-
-:: P_Ce_exte {"position":"1100,100","size":"100,100"}
-Tu t'es enfin décidé à descendre de ta tour d'ivoir ?
 
 
 :: P_Ch_Crime {"position":"1400,200","size":"100,100"}
