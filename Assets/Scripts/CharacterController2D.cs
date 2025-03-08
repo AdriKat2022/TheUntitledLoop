@@ -1,3 +1,5 @@
+using AdriKat.Toolkit.Attributes;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,9 +19,11 @@ public class CharacterController2D : MonoBehaviour
     [Space]
     [Tooltip("Using this will control the velocity overriding it directly, which might not work well if you're working with other forces.")]
     [SerializeField] private bool _instantAcceleration = false;
+    [ShowIf(nameof(_instantAcceleration), invert: true)]
     [SerializeField] private float _acceleration = 50f;
     [Tooltip("Using this will control the velocity overriding it directly, which might not work well if you're working with other forces.")]
     [SerializeField] private bool _instantDeceleration = false;
+    [ShowIf(nameof(_instantDeceleration), invert: true)]
     [SerializeField] private float _deceleration = 50f;
 
     [Header("Input References")]
@@ -29,10 +33,15 @@ public class CharacterController2D : MonoBehaviour
     private float _currentHorizontalInput;
     #endregion
 
-    private void Awake()
+    #region Gizmos
+
+    private void OnDrawGizmosSelected()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
+        // Draw a straight line on the X axis
+        Gizmos.DrawLine(transform.position + );
     }
+
+    #endregion
 
     #region Input Management
 
@@ -63,6 +72,12 @@ public class CharacterController2D : MonoBehaviour
     }
 
     #endregion
+
+    private void Awake()
+    {
+        _rigidbody = GetComponent<Rigidbody2D>();
+    }
+
 
     private void FixedUpdate()
     {
@@ -104,4 +119,17 @@ public class CharacterController2D : MonoBehaviour
             }
         }
     }
+
+    #region Locking
+    public void EnableMovement()
+    {
+        _movementInputReference.action.Enable();
+    }
+
+    public void DisableMovement()
+    {
+        _movementInputReference.action.Disable();
+        _currentHorizontalInput = 0;
+    }
+    #endregion
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,15 +7,15 @@ public class Interactable : MonoBehaviour
     [SerializeField] private bool _isInteractable = true;
     [SerializeField] private bool _isReusable = true;
 
-    [SerializeField] private UnityEvent _onInteract;
+    [SerializeField] private UnityEvent<Action> _onInteract;
 
     private bool _isUsed = false;
 
-    public void Interact()
+    public void Interact(Action endInteractionCallback)
     {
         if (_isInteractable && (!_isUsed || _isReusable))
         {
-            _onInteract.Invoke();
+            _onInteract.Invoke(endInteractionCallback);
             _isUsed = !_isReusable;
         }
     }

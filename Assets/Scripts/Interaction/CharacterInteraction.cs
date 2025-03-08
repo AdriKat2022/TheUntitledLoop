@@ -7,6 +7,7 @@ public class CharacterInteraction : MonoBehaviour
     [SerializeField] private Animator _interactionHint;
 
     private Interactable _currentInteractable;
+    private bool _isInteracting = false;
 
     #region Input Management
     private void OnEnable()
@@ -23,10 +24,20 @@ public class CharacterInteraction : MonoBehaviour
 
     private void OnInteraction(InputAction.CallbackContext ctx)
     {
+        if (_isInteracting) return;
+
         if (_currentInteractable != null)
         {
-            _currentInteractable.Interact();
+            _currentInteractable.Interact(EndInteractionCallback);
+            _isInteracting = true;
+            _interactionHint.SetBool("InInteraction", true);
         }
+    }
+
+    private void EndInteractionCallback()
+    {
+        _isInteracting = false;
+        _interactionHint.SetBool("InInteraction", false);
     }
     #endregion
 

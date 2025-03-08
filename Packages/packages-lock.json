@@ -1,5 +1,14 @@
 {
   "dependencies": {
+    "com.adrikat.toolkit": {
+      "version": "git@github.com:AdriKat2022/ToolkitUnityPackage.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.textmeshpro": "3.0.4"
+      },
+      "hash": "5f5f61aec9983a4121de49a643aa6e8a68300c0f"
+    },
     "com.crafteurmax.knitting": {
       "version": "https://github.com/Crafteurmax/Knitting.git",
       "depth": 0,
