@@ -18,6 +18,8 @@ public class DialogueStarter : MonoBehaviour
     [ShowIf(nameof(_useTag), disableInsteadOfHidding: false, invert: false)]
     [SerializeField] private string _playerTag = "Player";
 
+    [SerializeField] string name = "Ce";
+
     [Space]
 
     [SerializeField] private Story _story;
@@ -68,7 +70,7 @@ public class DialogueStarter : MonoBehaviour
                 _playerMouvementScript.EnableMovement();
             }
             callback?.Invoke();
-        });
+        }, _playerMouvementScript.name+"_"+name+"_"+_playerMouvementScript.zone);
     }
 
     #region Helper Methods

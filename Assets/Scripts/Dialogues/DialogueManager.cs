@@ -56,24 +56,24 @@ public class DialogueManager : Singleton<DialogueManager>
     }
 
     #region Start Dialogue
-    public void StartDialogue(Story story)
+    public void StartDialogue(Story story, string title = null)
     {
         gameObject.SetActive(true);
         Debug.Log("Start of dialogue");
-        StartCoroutine(GoThroughStory(story, _resetStoryOnDialogueStart));
+        StartCoroutine(GoThroughStory(story, _resetStoryOnDialogueStart, title:title));
     }
-    public void StartDialogue(Story story, Action onDialogueEndCallback)
+    public void StartDialogue(Story story, Action onDialogueEndCallback, string title = null)
     {
         gameObject.SetActive(true);
         Debug.Log("Start of dialogue");
-        StartCoroutine(GoThroughStory(story, _resetStoryOnDialogueStart, onDialogueEndCallback));
+        StartCoroutine(GoThroughStory(story, _resetStoryOnDialogueStart, onDialogueEndCallback, title));
     }
 
-    public void StartDialogue(Story story, bool forceRestart)
+    public void StartDialogue(Story story, bool forceRestart, string title = null)
     {
         gameObject.SetActive(true);
         Debug.Log("Start of dialogue");
-        StartCoroutine(GoThroughStory(story, forceRestart));
+        StartCoroutine(GoThroughStory(story, forceRestart, title:title));
     }
     #endregion
 
@@ -86,13 +86,13 @@ public class DialogueManager : Singleton<DialogueManager>
         onDialogueEndCallback?.Invoke();
     }
 
-    private IEnumerator GoThroughStory(Story story, bool forceRestart, Action onDialogueEndCallback = null)
+    private IEnumerator GoThroughStory(Story story, bool forceRestart, Action onDialogueEndCallback = null, string title = null)
     {
         _isInDialogue = true;
 
-        if (forceRestart)
+        if (forceRestart || title != null)
         {
-            story.SetNextNode(story.GetStart());
+            story.SetNextNode(title != null ? title : story.GetStart());
         }
 
         Debug.Log("Going through story : " + story);

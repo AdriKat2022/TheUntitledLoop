@@ -391,6 +391,8 @@ MonoBehaviour:
   _instantDeceleration: 0
   _deceleration: 100
   _movementInputReference: {fileID: -1319084621293553156, guid: e8b756914afcabe458e69d93a2d92d9e, type: 3}
+  name: E
+  zone: Exte
 --- !u!114 &1134619655709849346
 MonoBehaviour:
   m_ObjectHideFlags: 0
