@@ -47,8 +47,14 @@ TagManager:
   - name: Background1
     uniqueID: 3764783539
     locked: 0
+  - name: Floor
+    uniqueID: 923674471
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Object
+    uniqueID: 942557199
     locked: 0
   - name: Pnj
     uniqueID: 2288313739
