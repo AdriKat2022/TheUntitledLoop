@@ -258,7 +258,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7805c31ec41a60b4aa52fef8b5f50888, type: 3}
   _leftWalkingSprites: []
   _animationSpeed: 1
-  _resetTimingOnStateChange: 0
+  _resetTimingOnStateChange: 1
   _ignoreDirectionChangeAsState: 0
   _spriteRenderer: {fileID: 6168877651629582384}
 --- !u!1 &5453173214529802844
@@ -368,7 +368,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dbf9d7281e0464e44b8d29c9926141c8, type: 3}
   _leftWalkingSprites: []
   _animationSpeed: 1
-  _resetTimingOnStateChange: 0
+  _resetTimingOnStateChange: 1
   _ignoreDirectionChangeAsState: 0
   _spriteRenderer: {fileID: 8215782114228684259}
 --- !u!1 &6265976825055988836
@@ -478,7 +478,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: adb9c1a4766e6de498b6608745d3d7b9, type: 3}
   _leftWalkingSprites: []
   _animationSpeed: 2
-  _resetTimingOnStateChange: 0
+  _resetTimingOnStateChange: 1
   _ignoreDirectionChangeAsState: 0
   _spriteRenderer: {fileID: 3193744529794128806}
 --- !u!1 &6401936766396524966
@@ -857,7 +857,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ebf5934d40784a74da32faed2f3773c2, type: 3}
   _leftWalkingSprites: []
   _animationSpeed: 1
-  _resetTimingOnStateChange: 0
+  _resetTimingOnStateChange: 1
   _ignoreDirectionChangeAsState: 0
   _spriteRenderer: {fileID: 2466994311168145171}
 --- !u!1 &8257867083140941979

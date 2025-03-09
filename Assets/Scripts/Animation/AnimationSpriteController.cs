@@ -75,25 +75,22 @@ public class AnimationSpriteController : MonoBehaviour
 
     private void CheckTiming(AnimationState state)
     {
-        if (!_resetTimingOnStateChange) return;
+        if (!_resetTimingOnStateChange || _currentState == state) return;
 
-        if (_currentState != state)
+        if (_ignoreDirectionChangeAsState)
         {
-            if (_ignoreDirectionChangeAsState)
+            if (_currentState == AnimationState.WalkingLeft && state == AnimationState.WalkingRight)
             {
-                if (_currentState == AnimationState.WalkingLeft && state == AnimationState.WalkingRight)
-                {
-                    return;
-                }
-                if (_currentState == AnimationState.WalkingRight && state == AnimationState.WalkingLeft)
-                {
-                    return;
-                }
+                return;
             }
-
-            _timer = 0;
-            _currentState = state;
+            if (_currentState == AnimationState.WalkingRight && state == AnimationState.WalkingLeft)
+            {
+                return;
+            }
         }
+
+        _timer = 0;
+        _currentState = state;
     }
 
     public enum AnimationState
