@@ -125,6 +125,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3173189056589662480}
+  - component: {fileID: 1381619610805306199}
   m_Layer: 0
   m_Name: Sprites
   m_TagString: Untagged
@@ -151,6 +152,28 @@ Transform:
   - {fileID: 4485444432363166553}
   m_Father: {fileID: 5577027654920698278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1381619610805306199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2855397105354763139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f36132b483ccc034893d7133b4f0d9e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+    list:
+    - Key: Ch
+      Value: {fileID: 7350107463457915380}
+    - Key: Ce
+      Value: {fileID: 4197711820820121673}
+    - Key: P
+      Value: {fileID: 5453173214529802844}
+    - Key: E
+      Value: {fileID: 6265976825055988836}
 --- !u!1 &4197711820820121673
 GameObject:
   m_ObjectHideFlags: 0
