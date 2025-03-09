@@ -263,7 +263,6 @@ public class DialogueManager : Singleton<DialogueManager>
     {
         door.SetActive(false);
 
-        // TODO: Show eyes on all npcs
         ShowNpcEyes(false);
     }
 

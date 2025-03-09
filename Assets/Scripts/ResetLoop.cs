@@ -12,6 +12,8 @@ public class ResetLoop : MonoBehaviour
     [SerializeField] Material colorMaterial;
     [SerializeField] Story story;
 
+    [SerializeField] GameObject[] eyes;
+
     private Dictionary<string, PnjDeplacement> deplacements = new();
 
     private string NextChar()
@@ -56,6 +58,15 @@ public class ResetLoop : MonoBehaviour
 
     private void DisableUnwantedPnj()
     {
+        if (currentCharacter == "Ce")
+        {
+            ShowNpcEyes(story.GetVariable("isOpen") == "true");
+        }
+        else
+        {
+            ShowNpcEyes(false);
+        }
+
         playerController.name = currentCharacter;
         deplacements[currentCharacter].gameObject.SetActive(false);
     }
@@ -104,10 +115,20 @@ public class ResetLoop : MonoBehaviour
         currentCharacter = NextChar();
         spriteSelector.SelectSprite(currentCharacter);
 
+
         ResetPosition();
         LaunchReplay();
         SetShaderColor();
         SetPlayerLayer();
         DisableUnwantedPnj();
+    }
+
+
+    private void ShowNpcEyes(bool show)
+    {
+        foreach (var eye in eyes)
+        {
+            eye.SetActive(show);
+        }
     }
 }
