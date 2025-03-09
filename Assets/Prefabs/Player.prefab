@@ -280,7 +280,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 097a8dc865a2f794698f8798482ddfd6, type: 3}
   - {fileID: 21300000, guid: 7805c31ec41a60b4aa52fef8b5f50888, type: 3}
   _leftWalkingSprites: []
-  _animationSpeed: 1
+  _animationSpeed: 2
   _resetTimingOnStateChange: 1
   _ignoreDirectionChangeAsState: 0
   _spriteRenderer: {fileID: 6168877651629582384}
@@ -390,7 +390,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 48bda9dafab71644f96bfa1cfe84373d, type: 3}
   - {fileID: 21300000, guid: dbf9d7281e0464e44b8d29c9926141c8, type: 3}
   _leftWalkingSprites: []
-  _animationSpeed: 1
+  _animationSpeed: 2
   _resetTimingOnStateChange: 1
   _ignoreDirectionChangeAsState: 0
   _spriteRenderer: {fileID: 8215782114228684259}
@@ -691,9 +691,9 @@ MonoBehaviour:
   _sprite: {fileID: 6265976825055988836}
   _topSpeed: 2
   _instantAcceleration: 0
-  _acceleration: 50
+  _acceleration: 150
   _instantDeceleration: 0
-  _deceleration: 100
+  _deceleration: 200
   _movementInputReference: {fileID: -1319084621293553156, guid: e8b756914afcabe458e69d93a2d92d9e, type: 3}
   name: E
   zone: Exte
@@ -880,7 +880,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e2e2702bc6bbc264f969657744cd9586, type: 3}
   - {fileID: 21300000, guid: ebf5934d40784a74da32faed2f3773c2, type: 3}
   _leftWalkingSprites: []
-  _animationSpeed: 1
+  _animationSpeed: 2
   _resetTimingOnStateChange: 1
   _ignoreDirectionChangeAsState: 0
   _spriteRenderer: {fileID: 2466994311168145171}

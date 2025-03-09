@@ -29,9 +29,13 @@ public class CharacterInteraction : MonoBehaviour
 
     private void OnInteraction(InputAction.CallbackContext ctx)
     {
-        if (_isInteracting) return;
+        if (_isInteracting)
+        {
+            Debug.Log("Already interacting.");
+            return;
+        }
 
-        if (_interactables != null && _interactables.Count > 1)
+        if (_interactables != null && _interactables.Count > 0)
         {
             PerformInteraction();
         }
@@ -40,6 +44,7 @@ public class CharacterInteraction : MonoBehaviour
 
     private void PerformInteraction()
     {
+        Debug.Log("Performing interaction.");
         _isInteracting = true;
         _interactionHint.SetBool("InInteraction", true);
 

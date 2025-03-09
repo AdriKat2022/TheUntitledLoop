@@ -13,7 +13,6 @@ public class SpriteSelector : MonoBehaviour
             {
                 found = true;
                 sprite.Value.SetActive(true);
-                break;
             }
             else
             {
