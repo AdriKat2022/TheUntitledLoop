@@ -9,6 +9,8 @@ public class CharacterController2D : MonoBehaviour
     [HideInInspector]
     public int SpeedMultiplier = 100; // Modified by something external
 
+    public float HorizontalSpeed => _rigidbody.velocity.x;
+
     #region Variables
     [Header("Animations")]
     [SerializeField] private GameObject _sprite;

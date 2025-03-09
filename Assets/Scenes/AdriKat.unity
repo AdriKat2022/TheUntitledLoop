@@ -123,6 +123,60 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &44907137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 44907139}
+  - component: {fileID: 44907138}
+  m_Layer: 0
+  m_Name: AnimatedSprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &44907138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44907137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cf88fa0e4972ed42b676612add349a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterController: {fileID: 0}
+  _idleSprites: []
+  _walkThreshold: 0.2
+  _overrideLeftWalkingSprites: 0
+  _rightWalkingSprites: []
+  _leftWalkingSprites: []
+  _animationSpeed: 0.1
+  _resetTimingOnStateChange: 0
+  _ignoreDirectionChangeAsState: 0
+  _spriteRenderer: {fileID: 0}
+--- !u!4 &44907139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44907137}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,6 +967,7 @@ MonoBehaviour:
   _useTag: 0
   _playerMouvementScript: {fileID: 892840663}
   _playerTag: Player
+  name: Ce
   _story: {fileID: 1095654358}
 --- !u!114 &892840663 stripped
 MonoBehaviour:
@@ -1119,3 +1174,4 @@ SceneRoots:
   - {fileID: 664080394}
   - {fileID: 1463579212}
   - {fileID: 1095654359}
+  - {fileID: 44907139}
