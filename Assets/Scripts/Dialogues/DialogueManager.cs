@@ -27,6 +27,10 @@ public class DialogueManager : Singleton<DialogueManager>
     private bool _continueFlag = false;
     private bool _isInDialogue = false;
 
+    private string isHappy = "false";
+    private string isOpen = "false";
+    private string isInside = "false";
+
     #region Input Management
     private void OnEnable()
     {
@@ -157,7 +161,44 @@ public class DialogueManager : Singleton<DialogueManager>
         }
         while (currentNode != null);
 
+        UpdateVariables(story);
+
         EndDialogue(onDialogueEndCallback);
+    }
+
+    private void UpdateVariables(Story story)
+    {
+        if(isHappy!=story.GetVariable("isHappy"))
+        {
+            isHappy = story.GetVariable("isHappy");
+            UpdateTeacherHappyness();
+        }
+        if (isOpen != story.GetVariable("isOpen"))
+        {
+            isOpen = story.GetVariable("isOpen");
+            UpdateCelebrityOpeness();
+        }
+        if(isInside != story.GetVariable("isInside"))
+        {
+            isInside = story.GetVariable("isInside");
+            UpdateDog();
+
+        }
+    }
+
+    private void UpdateDog()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void UpdateCelebrityOpeness()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void UpdateTeacherHappyness()
+    {
+        throw new NotImplementedException();
     }
 
     private IEnumerator DisplayOptions(StoryNode currentNode)

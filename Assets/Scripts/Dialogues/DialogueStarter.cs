@@ -39,6 +39,7 @@ public class DialogueStarter : MonoBehaviour
         _story.SetVariable("isHappy", "false");
         _story.SetVariable("isOpen", "false");
         _story.SetVariable("oneTime", "false");
+        _story.SetVariable("isInside", "false");
     }
 
     public void StartDialogue(Action callback)
