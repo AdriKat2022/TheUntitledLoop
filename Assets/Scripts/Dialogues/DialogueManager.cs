@@ -45,6 +45,7 @@ public class DialogueManager : Singleton<DialogueManager>
     [Header("Other vars")]
     [SerializeField] GameObject door;
     [SerializeField] GameObject guard;
+    [SerializeField] GameObject[] eyes;
     [SerializeField] AudioSource abouament;
 
     #region Input Management
@@ -141,7 +142,7 @@ public class DialogueManager : Singleton<DialogueManager>
             Debug.Log(title);
             story.SetNextNode(title != null ? title : story.GetStart());
         }
-        
+
         //Debug.Log("Going through story : " + story);
         int nextNodesCount = 0;
         StoryNode currentNode;
@@ -261,6 +262,9 @@ public class DialogueManager : Singleton<DialogueManager>
     private void UpdateCelebrityOpeness()
     {
         door.SetActive(false);
+
+        // TODO: Show eyes on all npcs
+        ShowNpcEyes(true);
     }
 
     private void UpdateTeacherHappyness()
@@ -268,6 +272,7 @@ public class DialogueManager : Singleton<DialogueManager>
         throw new NotImplementedException();
     }
 
+    #region Helper Methods
     private IEnumerator DisplayOptions(StoryNode currentNode)
     {
         _optionsPanel.alpha = 0;
@@ -299,6 +304,17 @@ public class DialogueManager : Singleton<DialogueManager>
         _mainText.text = "";
     }
 
+    private void ShowNpcEyes(bool show)
+    {
+        foreach (var eye in eyes)
+        {
+            eye.SetActive(show);
+        }
+    }
+
+    #endregion
+
+    #region Callbacks
     public void OptionSelected(int optionIndex)
     {
         //Debug.Log("Option selected : " + optionIndex);
@@ -307,4 +323,5 @@ public class DialogueManager : Singleton<DialogueManager>
 
         _optionsPanel.gameObject.SetActive(false);
     }
+    #endregion
 }
