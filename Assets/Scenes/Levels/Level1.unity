@@ -1548,6 +1548,10 @@ MonoBehaviour:
   playerController: {fileID: 892840663}
   colorMaterial: {fileID: 2100000, guid: 031f868668800c14db955292b35731ee, type: 2}
   story: {fileID: 1095654358}
+  eyes:
+  - {fileID: 164845781}
+  - {fileID: 1959946303}
+  - {fileID: 1936179937}
 --- !u!61 &696644966
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -60,10 +60,11 @@ public class ResetLoop : MonoBehaviour
     {
         if (currentCharacter == "Ce")
         {
-            ShowNpcEyes(story.GetVariable("isOpen") == "true");
+            ShowNpcEyes(story.GetVariable("isOpen") == "false");
         }
         else
         {
+            Debug.Log("NOT Celebrité");
             ShowNpcEyes(false);
         }
 
@@ -126,6 +127,7 @@ public class ResetLoop : MonoBehaviour
 
     private void ShowNpcEyes(bool show)
     {
+        Debug.Log(show);
         foreach (var eye in eyes)
         {
             eye.SetActive(show);
