@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: 2914637224351184272}
   - component: {fileID: 6276850449678539232}
   - component: {fileID: 7167553401128127475}
+  - component: {fileID: 2515555847998556504}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: Untagged
@@ -212,6 +213,12 @@ MonoBehaviour:
   _continueAction: {fileID: 6276492233132316502, guid: e8b756914afcabe458e69d93a2d92d9e, type: 3}
   _optionsPanel: {fileID: 2282785663512658630}
   _optionPrefab: {fileID: 5948611715103630431, guid: f7a74bca0f3d6d446acec516fe239491, type: 3}
+  _timeBeforeFirstText: 0.8
+  _useAnimations: 1
+  _dialogueBoxAnimator: {fileID: 2515555847998556504}
+  _visibleBoolDialogueBoxKey: IsVisible
+  door: {fileID: 0}
+  guard: {fileID: 0}
 --- !u!114 &6276850449678539232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +275,27 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!95 &2515555847998556504
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4151400300597430004}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e01340df700736a4d9bc90695ca7ecb5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4238924485401349107
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using AdriKat.Toolkit.Attributes;
 using AdriKat.Toolkit.CodePatterns;
 using System;
 using System.Collections;
@@ -21,6 +22,16 @@ public class DialogueManager : Singleton<DialogueManager>
     [SerializeField] private CanvasGroup _optionsPanel;
     [SerializeField] private DialogueOptionKnitting _optionPrefab;
 
+    [Space]
+
+    [Header("Animations")]
+    [SerializeField] private float _timeBeforeFirstText;
+    [SerializeField] private bool _useAnimations;
+    [ShowIf(nameof(_useAnimations))]
+    [SerializeField] private Animator _dialogueBoxAnimator;
+    [ShowIf(nameof(_useAnimations))]
+    [SerializeField] private string _visibleBoolDialogueBoxKey;
+
     private RectTransform _rectTransform;
     private int _optionSelected = 0;
     private bool _isOptionSelected = false;
@@ -31,6 +42,7 @@ public class DialogueManager : Singleton<DialogueManager>
     private string isOpen = "false";
     private string isInside = "false";
 
+    [Header("Other vars")]
     [SerializeField] GameObject door;
     [SerializeField] GameObject guard;
 
@@ -60,6 +72,16 @@ public class DialogueManager : Singleton<DialogueManager>
         _rectTransform = GetComponent<RectTransform>();
         gameObject.SetActive(false);
         _optionsPanel.gameObject.SetActive(false);
+
+        if (_useAnimations && _dialogueBoxAnimator == null)
+        {
+            Debug.LogError("Dialogue box animator is not assigned. Animation disabled.", gameObject);
+        }
+
+        if (_useAnimations)
+        {
+            _dialogueBoxAnimator.SetBool(_visibleBoolDialogueBoxKey, false);
+        }
     }
 
     #region Start Dialogue
@@ -87,14 +109,30 @@ public class DialogueManager : Singleton<DialogueManager>
     private void EndDialogue(Action onDialogueEndCallback)
     {
         Debug.Log("End of dialogue");
-        gameObject.SetActive(false);
+        ClearDialogueBox();
         _isInDialogue = false;
+
+        if (_useAnimations)
+        {
+            _dialogueBoxAnimator.SetBool(_visibleBoolDialogueBoxKey, false);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
 
         onDialogueEndCallback?.Invoke();
     }
 
     private IEnumerator GoThroughStory(Story story, bool forceRestart, Action onDialogueEndCallback = null, string title = null)
     {
+        ClearDialogueBox();
+
+        if (_useAnimations)
+        {
+            _dialogueBoxAnimator.SetBool(_visibleBoolDialogueBoxKey, true);
+        }
+
         _isInDialogue = true;
 
         if (forceRestart || title != null)
@@ -106,6 +144,8 @@ public class DialogueManager : Singleton<DialogueManager>
         Debug.Log("Going through story : " + story);
         int nextNodesCount = 0;
         StoryNode currentNode;
+
+        yield return new WaitForSeconds(_timeBeforeFirstText);
 
         do
         {
@@ -171,7 +211,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
     private void UpdateVariables(Story story)
     {
-        if(isHappy!=story.GetVariable("isHappy"))
+        if (isHappy != story.GetVariable("isHappy"))
         {
             isHappy = story.GetVariable("isHappy");
             UpdateTeacherHappyness();
@@ -181,7 +221,7 @@ public class DialogueManager : Singleton<DialogueManager>
             isOpen = story.GetVariable("isOpen");
             UpdateCelebrityOpeness();
         }
-        if(isInside != story.GetVariable("isInside"))
+        if (isInside != story.GetVariable("isInside"))
         {
             isInside = story.GetVariable("isInside");
             UpdateDog();
@@ -226,6 +266,13 @@ public class DialogueManager : Singleton<DialogueManager>
         // Force to recalculate the layout
         LayoutRebuilder.ForceRebuildLayoutImmediate(_rectTransform);
         _optionsPanel.alpha = 1;
+    }
+
+    private void ClearDialogueBox()
+    {
+        _titleTextContainer.SetActive(false);
+        _titleText.text = "";
+        _mainText.text = "";
     }
 
     public void OptionSelected(int optionIndex)
