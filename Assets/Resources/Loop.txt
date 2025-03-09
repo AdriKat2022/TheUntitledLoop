@@ -56,11 +56,13 @@ Tu vois ce citron, mon petit chien ? Il est simple, mais il a du caractère. Com
 
 :: Ce_E_Crime {"position":"1200,500","size":"100,100"}
 (if: $isOpen is "false")[...]
-(else:)[C'était un dessin de Jaja... J'ai mis plusieurs centaines d'heures à le faire. Mais souviens toi petit, le plus important ce n'est pas le vernisage mais les amis que l'on s'est fait sur le chemin.[[Ce_E_Crime_Reponse]]]
+(else:)[C'était un dessin de Jaja... J'ai mis plusieurs centaines d'heures à le faire. Mais souviens toi petit, le plus important ce n'est pas le vernisage mais les amis que l'on s'est fait sur le chemin.]
+[[Ce_E_Crime_Reponse]]
 
 
 :: Ce_E_Crime_Reponse [Reponse] {"position":"1200,0","size":"100,100"}
-Plusieurs centaines d'heures ??? Ça fait au moins... 150 heures !
+(if: $isOpen is "false")[...]
+(else:)[Plusieurs centaines d'heures ??? Ça fait au moins... 150 heures !]
 
 
 :: Ce_E_Exte {"position":"900,500","size":"100,100"}
@@ -79,11 +81,13 @@ Je peux en avoir un ??? Wow, vous êtes vraiment trop cool !
 
 :: Ce_E_Tableau {"position":"1100,500","size":"100,100"}
 (if: $isOpen is "false")[...]
-(else:)[L'art c'est comme un citron, c'est jaune, c'est beau et tu peux en faire des tartes... C'est ce citron qui m'a donné l'inspiration pour Jaja's bizarre adventure...[[Ce_E_Tableau_Reponse]]]
+(else:)[L'art c'est comme un citron, c'est jaune, c'est beau et tu peux en faire des tartes... C'est ce citron qui m'a donné l'inspiration pour Jaja's bizarre adventure...]
+[[Ce_E_Tableau_Reponse]]
 
 
 :: Ce_E_Tableau_Reponse [Reponse] {"position":"1100,0","size":"100,100"}
-Hein, vraiment ?
+(if: $isOpen is "false")[...]
+(else:)[Hein, vraiment ?]
 
 
 :: Ce_P_Crime {"position":"1200,400","size":"100,100"}
@@ -92,26 +96,31 @@ Hein, vraiment ?
 
 
 :: Ce_P_Exte {"position":"900,400","size":"100,100"}
-(if: $isHappy is "true" or $oneTime is "true")[Il fait beau aujourd'hui. Je suis contente que tu aies emmené tes élèves voir cette exposition.]
+(if: $oneTime is "true")[Il fait beau aujourd'hui. Je suis contente que tu aies emmené tes élèves voir cette exposition.]
+(else-if: $isHappy is "true")[Il fait beau aujourd'hui. Je suis contente que tu aies emmené tes élèves voir cette exposition.]
 (else:)[Il y a ce tableau qu'on aimait bien quand on était à l'école qui est exposé aujourd'hui.]
 
 
 :: Ce_P_Secu {"position":"1000,400","size":"100,100"}
 (if: $isOpen is "false")[...]
-(else:)[Je n'aime pas ce vigile... Il laisse vraiment passer n'importe qui... Il est passé où d'ailleurs ?[[Ce_P_Secu_Reponse]]]
+(else:)[Je n'aime pas ce vigile... Il laisse vraiment passer n'importe qui... Il est passé où d'ailleurs ?]
+[[Ce_P_Secu_Reponse]]
 
 
 :: Ce_P_Secu_Reponse [Reponse] {"position":"1000,200","size":"100,100"}
-Si ce vigile était compétent, ton tableau n'aurait pas été volé aussi facilement.
+(if: $isOpen is "false")[...]
+(else:)[Si ce vigile était compétent, ton tableau n'aurait pas été volé aussi facilement.]
 
 
 :: Ce_P_Tableau [important] {"position":"1100,400","size":"100,100"}
 (if: $isOpen is "false")[...]
-(else:)[C'était notre tableau préféré à l'école d'art... J'aimerai que l'on revienne à cette époque où tout était plus simple... Pas de fans, pas de paparazzis, juste deux amis qui admirent un citron... Désolé de t'avoir ignoré pendant si longtemps. Le succès m'a poussé à m'isoler...(if: $isHappy is "false")[(set: $oneTime to "true")][[Ce_P_Tableau_Reponse]]]
+(else:)[C'était notre tableau préféré à l'école d'art... J'aimerai que l'on revienne à cette époque où tout était plus simple... Pas de fans, pas de paparazzis, juste deux amis qui admirent un citron... Désolé de t'avoir ignoré pendant si longtemps. Le succès m'a poussé à m'isoler...(if: $isHappy is "false")[(set: $oneTime to "true")]]
+[[Ce_P_Tableau_Reponse]]
 
 
 :: Ce_P_Tableau_Reponse [Reponse] {"position":"1100,200","size":"100,100"}
-Je ne savais pas que ton succès t'avais autant affecté. Je pensais vraiment que tu ne voulais plus me voir...
+(if: $isOpen is "false")[...]
+(else:)[Je ne savais pas que ton succès t'avais autant affecté. Je pensais vraiment que tu ne voulais plus me voir...]
 
 
 :: Chien {"position":"800,900","size":"100,100"}
@@ -174,7 +183,8 @@ Toi aussi tu viens voir l'exposition ? C'est pas juste que tu restes dehors !!! 
 
 :: E_Ch_Secu [important] {"position":"500,600","size":"100,100"}
 (if: $isInside is "false")[Je vais distraire le vigile, profites en pour aller voir l'exposition ! Hé oh, monsieur le vigile, il y a un voleur dehors !(set: $isInside to "true")]
-(else:)[Alors, tu as pu voir les tableaux ?[[Chien_Reponse]]]
+(else:)[Alors, tu as pu voir les tableaux ?]
+[[Chien_Reponse]]
 
 
 
@@ -205,7 +215,8 @@ Monsieur ? Pourquoi quelqu'un a volé le tableau ??? C'est pour décorer sa mais
 
 
 :: E_P_Crime_Reponse [Reponse] {"position":"700,0","size":"100,100"}
-(if: $isHappy is "true" or $oneTime is "true")[Je ne sais pas...]
+(if: $oneTime is "true")[Je ne sais pas...]
+(else-if: $isHappy is "true")[Je ne sais pas...]
 (else:)[Qui voudrait décorer sa maison avec un tableau pareil ?]
 
 
@@ -229,7 +240,7 @@ Monsieur, pourquoi on a pas le droit d'avoir de la soupe dans le musée ?
 
 
 :: E_P_Secu_Reponse [Reponse] {"position":"500,0","size":"100,100"}
-C'est pour éviter que des enfants comme toi fassent une bêtise.
+Parce que la soupe et les oeuvres d'arts sont des ennemis naturels.
 
 
 :: E_P_Tableau {"position":"600,500","size":"100,100"}
@@ -251,31 +262,42 @@ Dit monsieurs, qu'est ce qui est jaune et qui atteeeeend ??? Le citron dans le t
 
 
 :: P_Ce_Exte {"position":"1400,400","size":"100,100"}
-(if: $isHappy is "true" or $oneTime is "true")[...Il fait beau aujourd'hui, non ?[[P_Ce_Exte_Reponse]]]
+(if: $oneTime is "true")[...Il fait beau aujourd'hui, non ?]
+(else-if: $isHappy is "true")[...Il fait beau aujourd'hui, non ?]
 (else:)[Tu t'es enfin décidée à descendre de ta tour d'ivoir ?]
+[[P_Ce_Exte_Reponse]]
 
 
 :: P_Ce_Exte_Reponse [Reponse] {"position":"1400,200","size":"100,100"}
-Oui...
+(if: $oneTime is "true")[Oui...]
+(else-if: $isHappy is "true")[Oui...]
+(else:)[...]
 
 
 :: P_Ce_Secu {"position":"1500,400","size":"100,100"}
-(if: $isHappy is "true" or $oneTime is "true")[Pas étonnant que ton tableau ait été volé aussi facilement, ce vigile est si facilement distrait.[[P_Ce_Secu_Reponse]] ]
+(if: $oneTime is "true")[Pas étonnant que ton tableau ait été volé aussi facilement, ce vigile est si facilement distrait. ]
+(else-if: $isHappy is "true")[Pas étonnant que ton tableau ait été volé aussi facilement, ce vigile est si facilement distrait. ]
 (else:)[Si tu ne voulais pas que ton œuvre soit volée, tu aurais dû l'exposer dans un musée plus sécurisé. ]
+[[P_Ce_Secu_Reponse]]
 
 
 :: P_Ce_Secu_Reponse [Reponse] {"position":"1500,200","size":"100,100"}
-Si seulement il était plus compétent...
+(if: $oneTime is "true")[Si seulement il était plus compétent...]
+(else-if: $isHappy is "true")[Si seulement il était plus compétent...]
+(else:)[...]
 
 
 :: P_Ce_Tableau {"position":"1600,400","size":"100,100"}
-(if: $oneTime is "true")[C'était notre tableau préféré... Je suis content d'avoir pu te parler.[[P_Ce_Tableau_Reponse]]]
+(if: $oneTime is "true")[C'était notre tableau préféré... Je suis content d'avoir pu te parler.]
 (else-if: $isHappy is "false")[C'était notre tableau préféré... Avant que le succès ne te monte à la tête.]
-(else:)[C'était notre tableau préféré... Je suis content d'avoir pu te parler.[[P_Ce_Tableau_Reponse]]]
+(else:)[C'était notre tableau préféré... Je suis content d'avoir pu te parler.]
+[[P_Ce_Tableau_Reponse]] 
 
 
 :: P_Ce_Tableau_Reponse [Reponse] {"position":"1600,200","size":"100,100"}
-Oui moi aussi.
+(if: $oneTime is "true")[Oui, moi aussi.]
+(else-if: $isHappy is "true")[Oui, moi aussi.]
+(else:)[...]
 
 
 :: P_Ch_Crime {"position":"1700,600","size":"100,100"}
@@ -299,43 +321,54 @@ Haaaa mais comment tu as fait pour passer la sécurité ??
 
 
 :: P_E_Crime [important] {"position":"1700,500","size":"100,100"}
-(if: $oneTime is "true")[Dis moi, je me suis trompé à propos d'une amie et à cause de ça j'ai fais une grosse bêtise. Qu'est-ce que tu fais, toi, quand ça t'arrive ?(set: $oneTime to "false") (set: $isHappy to "true")[[P_E_Crime_Reponse1]]]
+(if: $oneTime is "true")[Dis moi, je me suis trompé à propos d'une amie et à cause de ça j'ai fais une grosse bêtise. Qu'est-ce que tu fais, toi, quand ça t'arrive ?(set: $oneTime to "false") (set: $isHappy to "true")]
 (else-if: $isHappy is "false")[Ne nous attardons pas sur cette artiste, elle n'a aucun intérêt...]
-(else:)[Je suis désolé mon enfant...[[P_E_Crime_Reponse2]]]
+(else:)[Je suis désolé mon enfant...]
+[[P_E_Crime_Reponse]] 
 
 
-:: P_E_Crime_Reponse1 [Reponse] {"position":"1900,450","size":"100,100"}
-C'est facile faut juste s'excuser, vous êtes bête monsieur !
-
-
-:: P_E_Crime_Reponse2 [Reponse] {"position":"1900,550","size":"100,100"}
-Bah pourquoi vous dites ça à moi, c'est à votre amie qu'il faut le dire !
+:: P_E_Crime_Reponse [Reponse] {"position":"1900,500","size":"100,100"}
+(if: $oneTime is "true")[C'est facile faut juste s'excuser, vous êtes bête monsieur !]
+(else-if: $isHappy is "true")[Bah pourquoi vous dites ça à moi, c'est à votre amie qu'il faut le dire !]
+(else:)[N'importe quoi !]
 
 
 :: P_E_Exte {"position":"1400,500","size":"100,100"}
 (if: $isHappy is "false")[Dans le musée, restez bien groupés et pas de bêtise !]
- (else:)[La mangaka est une vielle amie a moi, je pourrai lui demander un autographe pour toi si tu veux ?[[P_E_Exte_Reponse]]]
+(else:)[La mangaka est une vielle amie a moi, je pourrai lui demander un autographe pour toi si tu veux ?]
+ [[P_E_Exte_Reponse]]
 
 
 :: P_E_Exte_Reponse [Reponse] {"position":"1400,0","size":"100,100"}
-C'est vrai ??? Wow, ce serait trop cool, merci monsieur !
+(if: $isHappy is "false")[Oui monsieur...]
+(else:)[C'est vrai ??? Wow, ce serait trop cool, merci monsieur !]
 
 
 :: P_E_Secu {"position":"1500,500","size":"100,100"}
-(if: $isHappy is "false")[Ouvrez dès maintenent vos sac pour passer la sécurité plus rapidement.]
-(else:)[C'est toi qui a fait rentrer le chien n'est ce pas ?[[P_E_Secu_Reponse]]]
+(if: $oneTime is "true")[C'est toi qui a fait rentrer le chien n'est ce pas ?]
+(if: $isHappy is "true")[C'est toi qui a fait rentrer le chien n'est ce pas ?]
+(else:)[Ouvrez dès maintenent vos sac pour passer la sécurité plus rapidement.]
+[[P_E_Secu_Reponse]]
 
 
 :: P_E_Secu_Reponse [Reponse] {"position":"1500,0","size":"100,100"}
-Héhé, je suis un expert en bêtises ! Si vous avez besoin de conseils, je suis la personne qu'il vous faut !
+(if: $oneTime is "true")[Héhé, je suis un expert en bêtises ! Si vous avez besoin de conseils, je suis la personne qu'il vous faut !]
+(if: $isHappy is "true")[Héhé, je suis un expert en bêtises ! Si vous avez besoin de conseils, je suis la personne qu'il vous faut !]
+(else:)[Oui monsieur...]
+
 
 
 :: P_E_Tableau {"position":"1600,500","size":"100,100"}
-Ce tableau est vraiment un chef d'oeuvre... (if: $isHappy is "true" or $oneTime is "true")[Regardes ce citron ! Il est jaune, éclatant, comme un petit soleil. Sa couleur te donne de la joie, et ses ombres lui donnent de la vie. C’est un fruit simple, mais tellement spécial ![[P_E_Tableau_Reponse]]]
+Ce tableau est vraiment un chef d'oeuvre... 
+(if: $isHappy is "true")[Regardes ce citron ! Il est jaune, éclatant, comme un petit soleil. Sa couleur te donne de la joie, et ses ombres lui donnent de la vie. C’est un fruit simple, mais tellement spécial !]
+(else-if:$oneTime is "true")[Regardes ce citron ! Il est jaune, éclatant, comme un petit soleil. Sa couleur te donne de la joie, et ses ombres lui donnent de la vie. C’est un fruit simple, mais tellement spécial !]
+[[P_E_Tableau_Reponse]] 
 
 
 :: P_E_Tableau_Reponse [Reponse] {"position":"1600,0","size":"100,100"}
-Bah, c'est juste un citron quoi...
+(if: $isHappy is "true")[Bah, c'est juste un citron quoi...]
+(else-if: $oneTime is "true")[Bah, c'est juste un citron quoi...]
+(else:)[Vous êtes bizarre monsieur.]
 
 
 :: P_P_Crime {"position":"1700,1100","size":"100,100"}
