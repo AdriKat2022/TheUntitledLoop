@@ -140,8 +140,8 @@ public class DialogueManager : Singleton<DialogueManager>
             Debug.Log(title);
             story.SetNextNode(title != null ? title : story.GetStart());
         }
-
-        Debug.Log("Going through story : " + story);
+        
+        //Debug.Log("Going through story : " + story);
         int nextNodesCount = 0;
         StoryNode currentNode;
 
@@ -159,7 +159,9 @@ public class DialogueManager : Singleton<DialogueManager>
             }
             nextNodesCount = currentNode.GetNextNodes().Count;
 
-            _titleText.text = currentNode.GetTitle();
+            if(title != null) _titleText.text = GetFullName(title.Split('_')[ currentNode.HasTag("Reponse") ? 1 : 0]);
+            else _titleText.text = currentNode.GetTitle();
+
             _mainText.text = currentNode.getText();
 
             // If the title text begins with // then hide the title text container
@@ -175,12 +177,12 @@ public class DialogueManager : Singleton<DialogueManager>
                 // Display options to the player
                 yield return DisplayOptions(currentNode);
 
-                Debug.Log("Option count: " + nextNodesCount);
+                //Debug.Log("Option count: " + nextNodesCount);
 
                 // Wait for player to choose an option
                 yield return new WaitUntil(() => _isOptionSelected);
 
-                Debug.Log("Option selected: " + _optionSelected);
+                //Debug.Log("Option selected: " + _optionSelected);
 
                 story.ChooseNextNode(_optionSelected % nextNodesCount);
             }
@@ -207,6 +209,19 @@ public class DialogueManager : Singleton<DialogueManager>
         UpdateVariables(story);
 
         EndDialogue(onDialogueEndCallback);
+    }
+
+    private string GetFullName(string nameShort)
+    {
+        switch (nameShort)
+        {
+            case "Ce": return "Mangaka";
+            case "Ch": return "Chien";
+            case "P": return "Professeur";
+            case "E": return "Enfant";
+        }
+
+        return "// ???";
     }
 
     private void UpdateVariables(Story story)
