@@ -46,6 +46,7 @@ public class DialogueManager : Singleton<DialogueManager>
     [SerializeField] GameObject door;
     [SerializeField] GameObject guard;
     [SerializeField] GameObject[] eyes;
+    [SerializeField] AudioSource abouament;
 
     #region Input Management
     private void OnEnable()
@@ -160,7 +161,15 @@ public class DialogueManager : Singleton<DialogueManager>
             }
             nextNodesCount = currentNode.GetNextNodes().Count;
 
-            if (title != null) _titleText.text = GetFullName(title.Split('_')[currentNode.HasTag("Reponse") ? 1 : 0]);
+            if (title != null)
+            {
+                if (title == "Chien")
+                {
+                    _titleText.text = "Chien";
+                    if(!abouament.isPlaying) abouament.Play();
+                }
+                else _titleText.text = GetFullName(title.Split('_')[currentNode.HasTag("Reponse") ? 1 : 0]);
+            }
             else _titleText.text = currentNode.GetTitle();
 
             _mainText.text = currentNode.getText();
