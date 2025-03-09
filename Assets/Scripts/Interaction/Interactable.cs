@@ -34,6 +34,7 @@ public class Interactable : MonoBehaviour
 
     public void Interact(Action endInteractionCallback)
     {
+        Debug.Log("Interacted with " + name, gameObject);
         if (_isInteractable && (!_isUsed || _isReusable))
         {
             _onInteract.Invoke(endInteractionCallback);

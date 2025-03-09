@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,13 +6,15 @@ public class ResetLoop : MonoBehaviour
 {
     string currentCharacter = "Ch";
 
+    [SerializeField] SpriteSelector spriteSelector;
     [SerializeField] PnjDeplacement deplacementCh, deplacementCe, deplacementP, deplacementE;
-    private Dictionary<string, PnjDeplacement> deplacements = new Dictionary<string, PnjDeplacement>();
     [SerializeField] CharacterController2D playerController;
     [SerializeField] Material colorMaterial;
     [SerializeField] Story story;
 
-    private string nextChar()
+    private Dictionary<string, PnjDeplacement> deplacements = new();
+
+    private string NextChar()
     {
         switch (currentCharacter)
         {
@@ -28,17 +29,17 @@ public class ResetLoop : MonoBehaviour
 
     private void Awake()
     {
-        deplacements.Add("Ch",deplacementCh);
-        deplacements.Add("Ce",deplacementCe);
-        deplacements.Add("P" ,deplacementP);
-        deplacements.Add("E" ,deplacementE);
+        deplacements.Add("Ch", deplacementCh);
+        deplacements.Add("Ce", deplacementCe);
+        deplacements.Add("P", deplacementP);
+        deplacements.Add("E", deplacementE);
 
         GoToNextLoop();
     }
 
     private void SaveHistory()
     {
-        deplacements[currentCharacter].history.Clear() ;
+        deplacements[currentCharacter].history.Clear();
         foreach (inputHistory _history in playerController.history) deplacements[currentCharacter].history.Add(new inputHistory(_history.time, _history.value));
     }
 
@@ -50,7 +51,7 @@ public class ResetLoop : MonoBehaviour
 
     private void LaunchReplay()
     {
-        foreach (KeyValuePair<string,PnjDeplacement> kpv in deplacements) kpv.Value.Launch();
+        foreach (KeyValuePair<string, PnjDeplacement> kpv in deplacements) kpv.Value.Launch();
     }
 
     private void DisableUnwantedPnj()
@@ -61,12 +62,11 @@ public class ResetLoop : MonoBehaviour
 
     public void GoToNextLoop(Action action)
     {
-        foreach (KeyValuePair<string,PnjDeplacement> kpv in deplacements) kpv.Value.gameObject.SetActive(true);
+        foreach (KeyValuePair<string, PnjDeplacement> kpv in deplacements) kpv.Value.gameObject.SetActive(true);
 
         GoToNextLoop();
 
         action.Invoke();
-
     }
 
     private void SetShaderColor()
@@ -75,30 +75,28 @@ public class ResetLoop : MonoBehaviour
         {
             case "Ce": colorMaterial.SetColor("_Color", new Color(216 / 255f, 188 / 255f, 90 / 255f)); break; // vert           #78d59c
             case "Ch": colorMaterial.SetColor("_Color", new Color(120 / 255f, 213 / 255f, 156 / 255f)); break;// jaune           #d8bc5a 
-            case "P" : 
-                if(story.GetVariable("isHappy") == "true") colorMaterial.SetColor("_Color", new Color(66  / 255f, 212 / 255f, 228 / 255f));
+            case "P":
+                if (story.GetVariable("isHappy") == "true") colorMaterial.SetColor("_Color", new Color(66 / 255f, 212 / 255f, 228 / 255f));
                 else colorMaterial.SetColor("_Color", new Color(164 / 255f, 197 / 255f, 201 / 255f));
                 break; // gris -> bleu   #a4c5c9 -> #42d4e4
-            case "E" : colorMaterial.SetColor("_Color", new Color(232 / 255f, 161 / 255f, 229 / 255f)); break; // rose           #e8a1e5
+            case "E": colorMaterial.SetColor("_Color", new Color(232 / 255f, 161 / 255f, 229 / 255f)); break; // rose           #e8a1e5
         }
     }
 
     [ContextMenu("NextLoop")]
     public void GoToNextLoop()
     {
-        foreach (KeyValuePair<string,PnjDeplacement> kpv in deplacements) kpv.Value.gameObject.SetActive(true);
+        foreach (KeyValuePair<string, PnjDeplacement> kpv in deplacements) kpv.Value.gameObject.SetActive(true);
 
         SaveHistory();
         playerController.ResetHistory();
 
-        currentCharacter = nextChar();
+        currentCharacter = NextChar();
+        spriteSelector.SelectSprite(currentCharacter);
 
         ResetPosition();
         LaunchReplay();
         SetShaderColor();
         DisableUnwantedPnj();
     }
-
-
-
 }

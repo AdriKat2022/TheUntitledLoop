@@ -229,6 +229,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &300384271 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1381619610805306199, guid: 633da7f1f10b79f4899d7b7fe447da5b, type: 3}
+  m_PrefabInstance: {fileID: 557735466490604764}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f36132b483ccc034893d7133b4f0d9e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &450352358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1311,6 +1322,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0090c5d96cdfe0b47911ee0cfc162393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _highlightOnInteract: 1
+  _sprite: {fileID: 0}
+  _highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   _isInteractable: 1
   _isReusable: 1
   _onInteract:
@@ -1340,6 +1354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5931a471c2a5d394ba84cb0aad7a004d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteSelector: {fileID: 300384271}
   deplacementCh: {fileID: 125862198}
   deplacementCe: {fileID: 509816985}
   deplacementP: {fileID: 122587745}
@@ -1599,6 +1614,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0090c5d96cdfe0b47911ee0cfc162393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _highlightOnInteract: 1
+  _sprite: {fileID: 0}
+  _highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   _isInteractable: 1
   _isReusable: 1
   _onInteract:
