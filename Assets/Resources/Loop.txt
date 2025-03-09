@@ -336,7 +336,7 @@ Haaaa mais comment tu as fait pour passer la sécurité ??
 :: P_E_Exte {"position":"1400,500","size":"100,100"}
 (if: $isHappy is "false")[Dans le musée, restez bien groupés et pas de bêtise !]
 (else:)[La mangaka est une vielle amie a moi, je pourrai lui demander un autographe pour toi si tu veux ?]
- [[P_E_Exte_Reponse]]
+[[P_E_Exte_Reponse]]
 
 
 :: P_E_Exte_Reponse [Reponse] {"position":"1400,0","size":"100,100"}
@@ -368,7 +368,7 @@ Ce tableau est vraiment un chef d’oeuvre...
 :: P_E_Tableau_Reponse [Reponse] {"position":"1600,0","size":"100,100"}
 (if: $isHappy is "true")[Bah, c’est juste un citron quoi...]
 (else-if: $oneTime is "true")[Bah, c’est juste un citron quoi...]
-(else:)[Vous êtes bizarre monsieur.]
+(else:)[Vous avez des goûts bizarres monsieur.]
 
 
 :: P_P_Crime {"position":"1700,1100","size":"100,100"}
