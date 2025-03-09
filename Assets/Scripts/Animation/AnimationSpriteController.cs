@@ -4,24 +4,10 @@ using UnityEngine;
 public class AnimationSpriteController : MonoBehaviour
 {
     [Required("A CharacterController2D is required to animate the sprite.")]
-    [SerializeField] private CharacterController2D _characterController;
+    [SerializeField] private Rigidbody2D _rigidbody;
     [Space]
-    [SerializeField] private Sprite[] _idleSprites;
-    [Space]
-    [SerializeField] private float _walkThreshold = 0.2f;
-    [Space]
-    [SerializeField] private bool _overrideLeftWalkingSprites;
-    [SerializeField] private Sprite[] _rightWalkingSprites;
-    [ShowIf(nameof(_overrideLeftWalkingSprites), disableInsteadOfHidding: true)]
-    [SerializeField] private Sprite[] _leftWalkingSprites;
-    [Space]
-    [Tooltip("Speed in sprites per second")]
-    [SerializeField] private float _animationSpeed = 1f;
-    [Tooltip("Going from idle to walking for example will always use the first sprite fully and then follow the _animationSpeed.")]
-    [SerializeField] private bool _resetTimingOnStateChange;
-    [ShowIf(nameof(_resetTimingOnStateChange))]
-    [Tooltip("Going from left to right or the opposite won't reset the timing.")]
-    [SerializeField] private bool _ignoreDirectionChangeAsState;
+    [Required("To control a character, make a CharacterSpriteData object.\n(Right Click->New->Character->CharacterSpritesData)")]
+    [SerializeField] private CharacterSpritesDataSO _characterSpriteData;
     [Space]
     [SerializeField] private SpriteRenderer _spriteRenderer;
 
@@ -30,41 +16,41 @@ public class AnimationSpriteController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (_characterController == null)
+        if (_rigidbody == null)
         {
             return;
         }
 
-        float horizontalSpeed = _characterController.HorizontalSpeed;
+        float horizontalSpeed = _rigidbody.velocity.x;
 
-        if (Mathf.Abs(horizontalSpeed) <= _walkThreshold)
+        if (Mathf.Abs(horizontalSpeed) <= _characterSpriteData.WalkThreshold)
         {
             CheckTiming(AnimationState.Idle);
-            Animate(_idleSprites);
+            Animate(_characterSpriteData.IdleSprites);
         }
         else if (horizontalSpeed > 0)
         {
             CheckTiming(AnimationState.WalkingRight);
             _spriteRenderer.flipX = false;
-            Animate(_rightWalkingSprites);
+            Animate(_characterSpriteData.RightWalkingSprites);
         }
         else
         {
             CheckTiming(AnimationState.WalkingLeft);
 
-            if (_overrideLeftWalkingSprites)
+            if (_characterSpriteData.OverrideLeftWalkingSprites)
             {
                 _spriteRenderer.flipX = false;
-                Animate(_leftWalkingSprites);
+                Animate(_characterSpriteData.LeftWalkingSprites);
             }
             else
             {
                 _spriteRenderer.flipX = true;
-                Animate(_rightWalkingSprites);
+                Animate(_characterSpriteData.RightWalkingSprites);
             }
         }
 
-        _timer += Time.deltaTime * _animationSpeed;
+        _timer += Time.deltaTime * _characterSpriteData.AnimationSpeed;
     }
 
     private void Animate(Sprite[] idleSprites)
@@ -75,9 +61,9 @@ public class AnimationSpriteController : MonoBehaviour
 
     private void CheckTiming(AnimationState state)
     {
-        if (!_resetTimingOnStateChange || _currentState == state) return;
+        if (!_characterSpriteData.ResetTimingOnStateChange || _currentState == state) return;
 
-        if (_ignoreDirectionChangeAsState)
+        if (_characterSpriteData.IgnoreDirectionChangeAsState)
         {
             if (_currentState == AnimationState.WalkingLeft && state == AnimationState.WalkingRight)
             {
@@ -98,5 +84,17 @@ public class AnimationSpriteController : MonoBehaviour
         Idle,
         WalkingRight,
         WalkingLeft
+    }
+
+    [ButtonAction("Get Rigidbody In Parent")]
+    private void GetRidigbodyInParent()
+    {
+        _rigidbody = GetComponentInParent<Rigidbody2D>();
+    }
+
+    [ButtonAction("Get Rigidbody In Children")]
+    private void GetRigidbodyInChildren()
+    {
+        _rigidbody = GetComponentInChildren<Rigidbody2D>();
     }
 }

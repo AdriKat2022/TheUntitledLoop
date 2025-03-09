@@ -79,4 +79,21 @@ public class Interactable : MonoBehaviour
         }
     }
     #endregion
+
+    [ButtonAction("Enable Highlighting and Get Sprite Renderer")]
+    private void GetSprite()
+    {
+        if (_sprite == null)
+        {
+            _sprite = GetComponent<SpriteRenderer>();
+        }
+        if (_sprite == null)
+        {
+            _sprite = GetComponentInChildren<SpriteRenderer>();
+        }
+        if (_sprite == null)
+        {
+            Debug.LogWarning("No sprite renderer found on " + name + " or its children.", gameObject);
+        }
+    }
 }

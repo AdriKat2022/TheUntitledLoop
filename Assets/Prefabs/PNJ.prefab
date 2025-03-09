@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6050629439236116392}
   - component: {fileID: 3193744529794128806}
+  - component: {fileID: 7812980137710121835}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -70,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2006653557
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -5177388603050735206, guid: cc35afd292fc349128b36a291fb3a165, type: 3}
   m_Color: {r: 0.12958288, g: 1, b: 0, a: 1}
@@ -84,6 +85,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7812980137710121835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6265976825055988836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cf88fa0e4972ed42b676612add349a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 0}
+  _idleSprites: []
+  _walkThreshold: 0.2
+  _overrideLeftWalkingSprites: 0
+  _rightWalkingSprites: []
+  _leftWalkingSprites: []
+  _animationSpeed: 1
+  _resetTimingOnStateChange: 0
+  _ignoreDirectionChangeAsState: 0
+  _spriteRenderer: {fileID: 0}
 --- !u!1 &6745857439486121655
 GameObject:
   m_ObjectHideFlags: 0

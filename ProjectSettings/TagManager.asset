@@ -50,6 +50,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Pnj
+    uniqueID: 2288313739
+    locked: 0
   - name: Player
     uniqueID: 4067690661
     locked: 0
