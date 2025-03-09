@@ -74,7 +74,7 @@ public class DialogueStarter : MonoBehaviour
                 _playerMouvementScript.EnableMovement();
             }
             callback?.Invoke();
-        }, _playerMouvementScript.name + "_" + name + "_" + _playerMouvementScript.zone);
+        }, _playerMouvementScript.name == "Ch" ? "Chien" : _playerMouvementScript.name + "_" + name + "_" + _playerMouvementScript.zone);
     }
 
     #region Helper Methods

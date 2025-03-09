@@ -10,6 +10,7 @@ public class CharacterController2D : MonoBehaviour
     public int SpeedMultiplier = 100; // Modified by something external
 
     public float HorizontalSpeed => _rigidbody.velocity.x;
+    [SerializeField] AudioSource audioSource;
 
     #region Variables
     [Header("Animations")]
@@ -116,6 +117,11 @@ public class CharacterController2D : MonoBehaviour
     {
         if (_currentHorizontalInput != 0)
         {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.pitch = UnityEngine.Random.Range(0.9f, 1f);
+                audioSource.Play();
+            }
             // Normalize the input if needed
             float targetVelocity = (SpeedMultiplier / 100f) * _topSpeed * _currentHorizontalInput;
 
