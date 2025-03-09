@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ResetLoop : MonoBehaviour
 {
-    string currentCharacter = "E";
+    string currentCharacter = "Ce";
 
     [SerializeField] SpriteSelector spriteSelector;
     [SerializeField] PnjDeplacement deplacementCh, deplacementCe, deplacementP, deplacementE;
