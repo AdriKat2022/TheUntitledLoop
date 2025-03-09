@@ -245,8 +245,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -227276635
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -5177388603050735206, guid: cc35afd292fc349128b36a291fb3a165, type: 3}
   m_Color: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
@@ -271,18 +271,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cf88fa0e4972ed42b676612add349a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterController: {fileID: 4570142813684996952}
-  _idleSprites:
-  - {fileID: 21300000, guid: b5426d12bdf7ac04894474fc56113e4a, type: 3}
-  _walkThreshold: 0.2
-  _overrideLeftWalkingSprites: 0
-  _rightWalkingSprites:
-  - {fileID: 21300000, guid: 097a8dc865a2f794698f8798482ddfd6, type: 3}
-  - {fileID: 21300000, guid: 7805c31ec41a60b4aa52fef8b5f50888, type: 3}
-  _leftWalkingSprites: []
-  _animationSpeed: 2
-  _resetTimingOnStateChange: 1
-  _ignoreDirectionChangeAsState: 0
+  _rigidbody: {fileID: 563811732334577757}
+  _characterSpriteData: {fileID: 11400000, guid: 830dcbd4fdad47a4587f6268f7332586, type: 2}
   _spriteRenderer: {fileID: 6168877651629582384}
 --- !u!1 &5453173214529802844
 GameObject:
@@ -355,8 +345,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -227276635
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -5177388603050735206, guid: cc35afd292fc349128b36a291fb3a165, type: 3}
   m_Color: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
@@ -381,18 +371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cf88fa0e4972ed42b676612add349a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterController: {fileID: 4570142813684996952}
-  _idleSprites:
-  - {fileID: 21300000, guid: f4f5022e2c2bcc244ad00ae892995572, type: 3}
-  _walkThreshold: 0.2
-  _overrideLeftWalkingSprites: 0
-  _rightWalkingSprites:
-  - {fileID: 21300000, guid: 48bda9dafab71644f96bfa1cfe84373d, type: 3}
-  - {fileID: 21300000, guid: dbf9d7281e0464e44b8d29c9926141c8, type: 3}
-  _leftWalkingSprites: []
-  _animationSpeed: 2
-  _resetTimingOnStateChange: 1
-  _ignoreDirectionChangeAsState: 0
+  _rigidbody: {fileID: 563811732334577757}
+  _characterSpriteData: {fileID: 11400000, guid: 4d6faac47670f5b468cfb1e419e33cdf, type: 2}
   _spriteRenderer: {fileID: 8215782114228684259}
 --- !u!1 &6265976825055988836
 GameObject:
@@ -465,8 +445,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -227276635
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -5177388603050735206, guid: cc35afd292fc349128b36a291fb3a165, type: 3}
   m_Color: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
@@ -491,18 +471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cf88fa0e4972ed42b676612add349a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterController: {fileID: 4570142813684996952}
-  _idleSprites:
-  - {fileID: 21300000, guid: 2200819e854590e43ba6f070bd238d02, type: 3}
-  _walkThreshold: 0.2
-  _overrideLeftWalkingSprites: 0
-  _rightWalkingSprites:
-  - {fileID: 21300000, guid: 831dec449367a8548b477e056c6e2eb7, type: 3}
-  - {fileID: 21300000, guid: adb9c1a4766e6de498b6608745d3d7b9, type: 3}
-  _leftWalkingSprites: []
-  _animationSpeed: 2
-  _resetTimingOnStateChange: 1
-  _ignoreDirectionChangeAsState: 0
+  _rigidbody: {fileID: 563811732334577757}
+  _characterSpriteData: {fileID: 11400000, guid: 260ac3af73a38f14ab3e603c91d90e93, type: 2}
   _spriteRenderer: {fileID: 3193744529794128806}
 --- !u!1 &6401936766396524966
 GameObject:
@@ -845,8 +815,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -227276635
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -5177388603050735206, guid: cc35afd292fc349128b36a291fb3a165, type: 3}
   m_Color: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
@@ -871,18 +841,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cf88fa0e4972ed42b676612add349a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterController: {fileID: 4570142813684996952}
-  _idleSprites:
-  - {fileID: 21300000, guid: c93bb843cd9b7914e85e21403aa06dc4, type: 3}
-  _walkThreshold: 0.2
-  _overrideLeftWalkingSprites: 0
-  _rightWalkingSprites:
-  - {fileID: 21300000, guid: e2e2702bc6bbc264f969657744cd9586, type: 3}
-  - {fileID: 21300000, guid: ebf5934d40784a74da32faed2f3773c2, type: 3}
-  _leftWalkingSprites: []
-  _animationSpeed: 2
-  _resetTimingOnStateChange: 1
-  _ignoreDirectionChangeAsState: 0
+  _rigidbody: {fileID: 0}
+  _characterSpriteData: {fileID: 11400000, guid: eb1fbb7515e02c14d9692bb06eb1737d, type: 2}
   _spriteRenderer: {fileID: 2466994311168145171}
 --- !u!1 &8257867083140941979
 GameObject:
