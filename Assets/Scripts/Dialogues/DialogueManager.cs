@@ -31,6 +31,9 @@ public class DialogueManager : Singleton<DialogueManager>
     private string isOpen = "false";
     private string isInside = "false";
 
+    [SerializeField] GameObject door;
+    [SerializeField] GameObject guard;
+
     #region Input Management
     private void OnEnable()
     {
@@ -188,12 +191,12 @@ public class DialogueManager : Singleton<DialogueManager>
 
     private void UpdateDog()
     {
-        throw new NotImplementedException();
+        guard.SetActive(false);
     }
 
     private void UpdateCelebrityOpeness()
     {
-        throw new NotImplementedException();
+        door.SetActive(false);
     }
 
     private void UpdateTeacherHappyness()
