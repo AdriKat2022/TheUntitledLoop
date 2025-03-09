@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public struct inputHistory
@@ -44,6 +45,17 @@ public class PnjDeplacement : MonoBehaviour
             _currentHorizontalInput = history[currentInputId].value;
             yield return new WaitForSeconds(history[currentInputId].time);
             currentInputId++;
+        }
+        StartCoroutine(GoBackToSpawn());
+    }
+
+    private IEnumerator GoBackToSpawn()
+    {
+        float distance;
+        while((distance = Vector3.Distance(transform.position, initialPosition)) > 0.1)
+        {
+            _currentHorizontalInput = Mathf.Clamp01(distance) * Mathf.Sign((initialPosition - transform.position ).x);
+            yield return new WaitForFixedUpdate();
         }
         _currentHorizontalInput = 0;
     }

@@ -22,7 +22,7 @@ public class DialogueStarter : MonoBehaviour
 
     [Space]
 
-    [SerializeField] private Story _story;
+    [SerializeField] public Story _story;
     #endregion
 
     private void OnEnable()
