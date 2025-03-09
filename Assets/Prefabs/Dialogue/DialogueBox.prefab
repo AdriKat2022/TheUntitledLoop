@@ -219,6 +219,11 @@ MonoBehaviour:
   _visibleBoolDialogueBoxKey: IsVisible
   door: {fileID: 0}
   guard: {fileID: 0}
+  eyes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &6276850449678539232
 MonoBehaviour:
   m_ObjectHideFlags: 0
