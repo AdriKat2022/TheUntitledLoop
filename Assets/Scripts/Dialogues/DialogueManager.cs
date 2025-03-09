@@ -60,7 +60,7 @@ public class DialogueManager : Singleton<DialogueManager>
     {
         gameObject.SetActive(true);
         Debug.Log("Start of dialogue");
-        StartCoroutine(GoThroughStory(story, _resetStoryOnDialogueStart, title:title));
+        StartCoroutine(GoThroughStory(story, _resetStoryOnDialogueStart, title: title));
     }
     public void StartDialogue(Story story, Action onDialogueEndCallback, string title = null)
     {
@@ -73,7 +73,7 @@ public class DialogueManager : Singleton<DialogueManager>
     {
         gameObject.SetActive(true);
         Debug.Log("Start of dialogue");
-        StartCoroutine(GoThroughStory(story, forceRestart, title:title));
+        StartCoroutine(GoThroughStory(story, forceRestart, title: title));
     }
     #endregion
 
@@ -105,6 +105,11 @@ public class DialogueManager : Singleton<DialogueManager>
             _continueFlag = false;
 
             currentNode = story.GetCurrentNode();
+            if (currentNode == null)
+            {
+                Debug.LogError("Current node is null while reading story.");
+                break;
+            }
             nextNodesCount = currentNode.GetNextNodes().Count;
 
             _titleText.text = currentNode.GetTitle();
