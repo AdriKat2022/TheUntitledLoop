@@ -1440,7 +1440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _highlightOnInteract: 1
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 696644963}
   _highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   _isInteractable: 1
   _isReusable: 1
@@ -2948,7 +2948,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 1acfdc7f4a336b74d8957f91df37c8ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3523,8 +3523,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -530183757
-  m_SortingLayer: -2
+  m_SortingLayerID: 923674471
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1a90189d447923d41a198a1c537720c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

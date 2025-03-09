@@ -23,6 +23,19 @@ public class Interactable : MonoBehaviour
     private Color _lastColor;
     private CharacterInteraction _currentCharacterInteraction;
 
+    private void Start()
+    {
+        if (_highlightOnInteract && _sprite == null)
+        {
+            _sprite = GetComponent<SpriteRenderer>();
+        }
+
+        if (_highlightOnInteract && _sprite == null)
+        {
+            Debug.LogWarning("Highlight on interact is enabled but no sprite renderer was found nor assigned.", gameObject);
+        }
+    }
+
     private void OnDisable()
     {
         if (_currentCharacterInteraction != null)
@@ -50,12 +63,15 @@ public class Interactable : MonoBehaviour
         {
             if (!_isHighlighted) _lastColor = _sprite.color;
 
+            Debug.Log("Saving " + _sprite.color + " from " + _sprite.gameObject, gameObject);
+
             _sprite.color = _highlightColor;
             _isHighlighted = true;
         }
         else
         {
-            _sprite.color = _lastColor;
+            if (_isHighlighted) _sprite.color = _lastColor;
+
             _isHighlighted = false;
         }
     }
@@ -79,21 +95,4 @@ public class Interactable : MonoBehaviour
         }
     }
     #endregion
-
-    [ButtonAction("Enable Highlighting and Get Sprite Renderer")]
-    private void GetSprite()
-    {
-        if (_sprite == null)
-        {
-            _sprite = GetComponent<SpriteRenderer>();
-        }
-        if (_sprite == null)
-        {
-            _sprite = GetComponentInChildren<SpriteRenderer>();
-        }
-        if (_sprite == null)
-        {
-            Debug.LogWarning("No sprite renderer found on " + name + " or its children.", gameObject);
-        }
-    }
 }
