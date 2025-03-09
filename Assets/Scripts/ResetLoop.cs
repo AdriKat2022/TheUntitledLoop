@@ -83,6 +83,16 @@ public class ResetLoop : MonoBehaviour
         }
     }
 
+    private void SetPlayerLayer()
+    {
+        switch (currentCharacter)
+        {
+            case "Ce": playerController.gameObject.layer = 8; break;
+            case "Ch": playerController.gameObject.layer = 7; break;
+            default: playerController.gameObject.layer = 0; break;
+        }
+    }
+
     [ContextMenu("NextLoop")]
     public void GoToNextLoop()
     {
@@ -97,6 +107,7 @@ public class ResetLoop : MonoBehaviour
         ResetPosition();
         LaunchReplay();
         SetShaderColor();
+        SetPlayerLayer();
         DisableUnwantedPnj();
     }
 }

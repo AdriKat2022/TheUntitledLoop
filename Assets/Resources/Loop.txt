@@ -10,218 +10,344 @@ Enfant
   "start": "Intro",
   "tag-colors": {
     "tag": "red",
-    "important": "yellow"
+    "important": "yellow",
+    "Reponse": "purple"
   },
   "zoom": 1
 }
 
 
-:: Ce_Ce_Crime {"position":"900,500","size":"100,100"}
+:: Ce_Ce_Crime {"position":"1200,1100","size":"100,100"}
 
 
 
-:: Ce_Ce_Exte {"position":"600,500","size":"100,100"}
+:: Ce_Ce_Exte {"position":"900,1100","size":"100,100"}
 
 
 
-:: Ce_Ce_Secu {"position":"700,500","size":"100,100"}
+:: Ce_Ce_Secu {"position":"1000,1100","size":"100,100"}
 
 
 
-:: Ce_Ce_Tableau {"position":"800,500","size":"100,100"}
+:: Ce_Ce_Tableau {"position":"1100,1100","size":"100,100"}
 
 
 
-:: Ce_Ch_Crime {"position":"900,200","size":"100,100"}
-Oooooooooh mon petit, que vais je faire maintenant, j'avais tellement hate de présenter mon tableau.
+:: Ce_Ch_Crime {"position":"1200,600","size":"100,100"}
+Oooooooooh mon petit, que vais-je faire maintenant, j'avais tellement hâte de présenter mon tableau...
+[[Chien_Reponse]]
 
 
-:: Ce_Ch_Exte {"position":"600,200","size":"100,100"}
+:: Ce_Ch_Exte {"position":"900,600","size":"100,100"}
 Hoooo, c'est qui le bon toutou ? C'est qui le bon toutou ? C'est touaaaaaaaa. <3
+[[Chien_Reponse]]
 
 
-:: Ce_Ch_Secu {"position":"700,200","size":"100,100"}
-Si seulement, je pouvais te montrer ce tableau...
+:: Ce_Ch_Secu {"position":"1000,600","size":"100,100"}
+(if: $isOpen is "false")[Si seulement, je pouvais te montrer ce tableau...]
+(else:)[Merci de m'avoir tenu compagnie.]
+[[Chien_Reponse]]
 
 
-:: Ce_Ch_Tableau [important] {"position":"800,200","size":"100,100"}
-Tu vois ce citron, mon petit chien ? Il est simple, mais il a du caractère. Comme mes idées, parfois un peu trop intenses. Mais là, il me calme. Tout comme toi, tu es juste là, sans juger. Merci de m'avoir écouté, je me sens mieux grâce à toi.(set: $isOpen to "true")
+:: Ce_Ch_Tableau [important] {"position":"1100,600","size":"100,100"}
+Tu vois ce citron, mon petit chien ? Il est simple, mais il a du caractère. Comme mes émotions, parfois un peu trop intenses. Mais là, il me calme. Tout comme toi, tu es juste là, sans juger. Merci de m'avoir écouté, je me sens mieux grâce à toi.(set: $isOpen to "true")
+[[Chien_Reponse]]
 
 
-:: Ce_E_Crime {"position":"900,300","size":"100,100"}
+:: Ce_E_Crime {"position":"1200,500","size":"100,100"}
 (if: $isOpen is "false")[...]
-(else:)[C'était un dessin de JaJa... J'ai mis plusieurs centaines d'heures à le faire. Mais souviens toi petit, le plus important ce n'est pas le vernisage mais les amis que l'on s'est fait sur le chemin.]
+(else:)[C'était un dessin de Jaja... J'ai mis plusieurs centaines d'heures à le faire. Mais souviens toi petit, le plus important ce n'est pas le vernisage mais les amis que l'on s'est fait sur le chemin.[[Ce_E_Crime_Reponse]]]
 
 
-:: Ce_E_Exte {"position":"600,300","size":"100,100"}
+:: Ce_E_Crime_Reponse [Reponse] {"position":"1200,0","size":"100,100"}
+Plusieurs centaines d'heures ??? Ça fait au moins... 150 heures !
+
+
+:: Ce_E_Exte {"position":"900,500","size":"100,100"}
 Tu veux un autographe ?
+[[Ce_E_Exte_Reponse]]
 
 
-:: Ce_E_Secu {"position":"700,300","size":"100,100"}
+:: Ce_E_Exte_Reponse [Reponse] {"position":"900,0","size":"100,100"}
+Je peux en avoir un ??? Wow, vous êtes vraiment trop cool !
+
+
+:: Ce_E_Secu {"position":"1000,500","size":"100,100"}
 (if: $isOpen is "false")[...]
 (else:)[Merci d'avoir fait rentrer le chien, c'est vraiment un bon toutou.]
 
 
-:: Ce_E_Tableau {"position":"800,300","size":"100,100"}
+:: Ce_E_Tableau {"position":"1100,500","size":"100,100"}
 (if: $isOpen is "false")[...]
-(else:)[L'art c'est comme un citron, c'est jaune, c'est beau et tu peux en faire des tartes... C'est ce citron qui m'a donné l'inspiration pour JaJa's bizarre adventure...]
+(else:)[L'art c'est comme un citron, c'est jaune, c'est beau et tu peux en faire des tartes... C'est ce citron qui m'a donné l'inspiration pour Jaja's bizarre adventure...[[Ce_E_Tableau_Reponse]]]
 
 
-:: Ce_P_Crime {"position":"900,100","size":"100,100"}
+:: Ce_E_Tableau_Reponse [Reponse] {"position":"1100,0","size":"100,100"}
+Hein, vraiment ?
+
+
+:: Ce_P_Crime {"position":"1200,400","size":"100,100"}
 (if: $isOpen is "false")[...]
 (else:)[Mon chef d'oeuvre...]
 
 
-:: Ce_P_Exte {"position":"600,100","size":"100,100"}
-Il fait beau, je suis content que tu ai amené tes élèves voir cette exposition...
+:: Ce_P_Exte {"position":"900,400","size":"100,100"}
+(if: $isHappy is "true" or $oneTime is "true")[Il fait beau aujourd'hui. Je suis contente que tu aies emmené tes élèves voir cette exposition.]
+(else:)[Il y a ce tableau qu'on aimait bien quand on était à l'école qui est exposé aujourd'hui.]
 
 
-:: Ce_P_Secu {"position":"700,100","size":"100,100"}
+:: Ce_P_Secu {"position":"1000,400","size":"100,100"}
 (if: $isOpen is "false")[...]
-(else:)[Je n'aime vraiment pas ce vigile... Il laisse vraiment passer n'importe qui...]
+(else:)[Je n'aime pas ce vigile... Il laisse vraiment passer n'importe qui... Il est passé où d'ailleurs ?[[Ce_P_Secu_Reponse]]]
 
 
-:: Ce_P_Tableau [important] {"position":"800,100","size":"100,100"}
+:: Ce_P_Secu_Reponse [Reponse] {"position":"1000,200","size":"100,100"}
+Si ce vigile était compétent, ton tableau n'aurait pas été volé aussi facilement.
+
+
+:: Ce_P_Tableau [important] {"position":"1100,400","size":"100,100"}
 (if: $isOpen is "false")[...]
-(else:)[C'était notre tableau préféré à l'école d'art... J'aimerais que l'on revienne à cette époque où tout était plus simple... Pas de fans, pas de paparazzi, juste deux amis qui admirent un citron... Désolé de t'avoir ignoré pendant si longtemps. Le succès m'a poussé à m'isoler...(if: $isHappy is "false")[(set: $oneTime to "true")]]
+(else:)[C'était notre tableau préféré à l'école d'art... J'aimerai que l'on revienne à cette époque où tout était plus simple... Pas de fans, pas de paparazzis, juste deux amis qui admirent un citron... Désolé de t'avoir ignoré pendant si longtemps. Le succès m'a poussé à m'isoler...(if: $isHappy is "false")[(set: $oneTime to "true")][[Ce_P_Tableau_Reponse]]]
 
 
-:: Chien {"position":"100,700","size":"100,100"}
-(either: "waf", 'wouf', 'wuf', "aaaarf") (either: "waf", 'wouf', 'wuf', "aaaarf") (either: "waf", 'wouf', 'wuf', "aaaarf") (either: "waf", 'wouf', 'wuf', "aaaarf") (either: "waf", 'wouf', 'wuf', "aaaarf") 
+:: Ce_P_Tableau_Reponse [Reponse] {"position":"1100,200","size":"100,100"}
+Je ne savais pas que ton succès t'avais autant affecté. Je pensais vraiment que tu ne voulais plus me voir...
 
 
-:: E_Ce_Crime {"position":"400,100","size":"100,100"}
-Vous allez retrouver le tableau n'est ce pas ? Comment quelqu'un peut oser faire ca a une artiste aussi talentueuse que toi !!!!!!!!! Il merite la prison a vie !!!!!!!!!
+:: Chien {"position":"800,900","size":"100,100"}
+(either: "waf", 'wouf', 'wuf', "aaaarf") (either: "waf", 'wouf', 'wuf', "aaaarf") (either: "waf", 'wouf', 'wuf', "aaaarf") (either: "waf", 'wouf', 'wuf', "aaaarf") (either: "waf", 'wouf', 'wuf', "aaaarf")
 
 
-:: E_Ce_Exte {"position":"100,100","size":"100,100"}
-Vous avez l'air plus joyeux. Comme dans le chapitre 3 du tome deux de
+:: Chien_Reponse [Reponse] {"position":"1000,900","size":"100,100"}
+(either: "waf", 'wouf', 'wuf', "aaaarf") (either: "waf", 'wouf', 'wuf', "aaaarf") (either: "waf", 'wouf', 'wuf', "aaaarf") (either: "waf", 'wouf', 'wuf', "aaaarf") (either: "waf", 'wouf', 'wuf', "aaaarf")
 
 
-:: E_Ce_Secu {"position":"200,100","size":"100,100"}
-Ouaaaaaaah un garde du corps comme dans JaJa's bizarre adventure !!!! Troooooop cooool. En même temps, t'es tellement connue, t'es trop forte !
+:: E_Ce_Crime {"position":"700,400","size":"100,100"}
+Vous allez retrouver le tableau n'est ce pas ? Comment quelqu'un peut oser faire ça à une artiste aussi talentueuse que toi !!!!!!!!! Il mérite la prison à vie !!!!!!!!!
+[[E_Ce_Crime_Reponse]] 
 
 
-:: E_Ce_Tableau {"position":"300,100","size":"100,100"}
+:: E_Ce_Crime_Reponse [Reponse] {"position":"700,200","size":"100,100"}
+(if: $isOpen is "true")[J'espère qu'on retrouvera rapidement mon tableau...]
+(else:)[...]
+
+
+:: E_Ce_Exte {"position":"400,400","size":"100,100"}
+Vous avez l'air plus joyeuse. Comme dans le chapitre 3 du tome deux de Jaja's bizarre adventure !
+[[E_Ce_Exte_Reponse]] 
+
+
+:: E_Ce_Exte_Reponse [Reponse] {"position":"400,200","size":"100,100"}
+Tu es un véritable fan de mon manga à ce que je vois !
+
+
+:: E_Ce_Secu {"position":"500,400","size":"100,100"}
+(if: $isInside is "false")[Ouaaaaaaah un garde du corps comme dans JaJa's bizarre adventure !!!! Troooooop cooool. En même temps, t'es tellement connue, t'es trop forte !]
+(else:)[Ce garde du corps n'est pas aussi fort que dans Jaja's bizarre adventure...]
+[[E_Ce_Secu_Reponse]] 
+
+
+:: E_Ce_Secu_Reponse [Reponse] {"position":"500,200","size":"100,100"}
+(if: $isOpen is "true")[Je ne te le fais pas dire...]
+(else:)[...]
+
+
+:: E_Ce_Tableau {"position":"600,400","size":"100,100"}
 Le dessin il est pas beaaaaauuuuu, dit tu veux pas le refaire en moins moooche ?
+[[E_Ce_Tableau_Reponse]] 
 
 
-:: E_Ch_Crime {"position":"400,300","size":"100,100"}
-Ho mon petit chien, tu peux pas retrouver le voleur avec ton super nez de super chien ?
+:: E_Ce_Tableau_Reponse [Reponse] {"position":"600,200","size":"100,100"}
+(if: $isOpen is "true")[Tu sais, l'art prend bien des formes différentes, et personnellement j'adore ce tableau !]
+(else:)[...]
 
 
-:: E_Ch_Exte {"position":"100,300","size":"100,100"}
-Toi aussi tu viens voir le tablau de machin ? C'est pas juste que tu reste dehors !!! Je vais te faire rentrer
+:: E_Ch_Crime {"position":"700,600","size":"100,100"}
+Hé oh petit chien, tu peux pas retrouver le voleur avec ton super nez de super chien ?
+[[Chien_Reponse]]
 
 
-:: E_Ch_Secu [important] {"position":"200,300","size":"100,100"}
-Chuuuuuuuut, viens dans mon manteau ...
+:: E_Ch_Exte {"position":"400,600","size":"100,100"}
+Toi aussi tu viens voir l'exposition ? C'est pas juste que tu restes dehors !!! Je vais t'aider à rentrer.
+[[Chien_Reponse]]
 
 
-:: E_Ch_Tableau {"position":"300,300","size":"100,100"}
-Même un chien comme toi dessine mieux.
-
-
-:: E_E_Crime {"position":"200,500","size":"100,100"}
-
-
-
-:: E_E_Exte {"position":"100,500","size":"100,100"}
-
-
-
-:: E_E_Secu {"position":"300,500","size":"100,100"}
+:: E_Ch_Secu [important] {"position":"500,600","size":"100,100"}
+(if: $isInside is "false")[Je vais distraire le vigile, profites en pour aller voir l'exposition ! Hé oh, monsieur le vigile, il y a un voleur dehors !(set: $isInside to "true")]
+(else:)[Alors, tu as pu voir les tableaux ?[[Chien_Reponse]]]
 
 
 
-:: E_E_Tableau {"position":"400,500","size":"100,100"}
+:: E_Ch_Tableau {"position":"600,600","size":"100,100"}
+Même un chien comme toi est capable de dessiner mieux.
+[[Chien_Reponse]]
+
+
+:: E_E_Crime {"position":"500,1100","size":"100,100"}
 
 
 
-:: E_P_Crime {"position":"400,200","size":"100,100"}
-Monsieur ? Pourquoi quelqu'un a volé le tableau ??? C'est pour decorer sa maison ?
+:: E_E_Exte {"position":"400,1100","size":"100,100"}
 
 
-:: E_P_Exte {"position":"100,200","size":"100,100"}
+
+:: E_E_Secu {"position":"600,1100","size":"100,100"}
+
+
+
+:: E_E_Tableau {"position":"700,1100","size":"100,100"}
+
+
+
+:: E_P_Crime {"position":"700,500","size":"100,100"}
+Monsieur ? Pourquoi quelqu'un a volé le tableau ??? C'est pour décorer sa maison ?
+[[E_P_Crime_Reponse]]
+
+
+:: E_P_Crime_Reponse [Reponse] {"position":"700,0","size":"100,100"}
+(if: $isHappy is "true" or $oneTime is "true")[Je ne sais pas...]
+(else:)[Qui voudrait décorer sa maison avec un tableau pareil ?]
+
+
+:: E_P_Exte {"position":"400,500","size":"100,100"}
 Excusez moi monsieur ? Est ce que vous avez les crampté ?
+[[E_P_Exte_Reponse1]]
 
 
-:: E_P_Secu {"position":"200,200","size":"100,100"}
+:: E_P_Exte_Reponse1 [Reponse] {"position":"200,500","size":"100,100"}
+Quoi ?
+[[E_P_Exte_Reponse2]]
+
+
+:: E_P_Exte_Reponse2 {"position":"200,700","size":"100,100"}
+Coubeh !
+
+
+:: E_P_Secu {"position":"500,500","size":"100,100"}
 Monsieur, pourquoi on a pas le droit d'avoir de la soupe dans le musée ?
+[[E_P_Secu_Reponse]] 
 
 
-:: E_P_Tableau {"position":"300,200","size":"100,100"}
-Dit monsieurs, Qu'est ce qui est jaune et qui atteeeeend ??? Le citron dans le tableau moche
+:: E_P_Secu_Reponse [Reponse] {"position":"500,0","size":"100,100"}
+C'est pour éviter que des enfants comme toi fassent une bêtise.
 
 
-:: Intro {"position":"100,0","size":"100,100"}
+:: E_P_Tableau {"position":"600,500","size":"100,100"}
+Dit monsieurs, qu'est ce qui est jaune et qui atteeeeend ??? Le citron dans le tableau moche !
+[[E_P_Tableau_Reponse]] 
+
+
+:: E_P_Tableau_Reponse [Reponse] {"position":"600,0","size":"100,100"}
+...
+
+
+:: Intro {"position":"200,200","size":"100,100"}
 
 
 
-:: P_Ce_Crime [important] {"position":"1400,100","size":"100,100"}
-(if: $isHappy is "false")[Tu es devenue tellement celebre que des imbeciles sont pret a voler tes tableau... Bien fait pour toi...]
-(else:)[J'avoue tout !!! C'est moi ai volé ton tableau,je rend compte que tu es quelqu'un de bien, le succes ne t'a pas changé, c'est moi qui étais jaloux de ton succes, pardonne moi ]
+:: P_Ce_Crime [important] {"position":"1700,400","size":"100,100"}
+(if: $isHappy is "false")[Tu es devenue tellement célèbre que des imbeciles sont prêts à voler tes tableaux... Bien fait pour toi...]
+(else:)[Écoutes, je dois t'avouer... C'est moi ai volé ton tableau ! J'étais aveuglé par ma jalousie, et quand tu t'es mise à m'ignorer j'ai cru que tu me prenait de haut et je ne l'ai pas supporté. Je me rend compte maintenant que le succès ne t'a pas changé, tu as juste toi aussi tes propres problèmes. Je te demande pardon.]
 
 
-:: P_Ce_Exte {"position":"1100,100","size":"100,100"}
-Tu t'es enfin décidé à descendre de ta tour d'ivoir ?
+:: P_Ce_Exte {"position":"1400,400","size":"100,100"}
+(if: $isHappy is "true" or $oneTime is "true")[...Il fait beau aujourd'hui, non ?[[P_Ce_Exte_Reponse]]]
+(else:)[Tu t'es enfin décidée à descendre de ta tour d'ivoir ?]
 
 
-:: P_Ce_Secu {"position":"1200,100","size":"100,100"}
-Es-tu certain que ce garde soit vraiment compétent ? Sinon, comment ton tableau aurait-il pu disparaître ?
+:: P_Ce_Exte_Reponse [Reponse] {"position":"1400,200","size":"100,100"}
+Oui...
 
 
-:: P_Ce_Tableau {"position":"1300,100","size":"100,100"}
-C'était notre tableau préféré... (if: $isHappy is "false")[Avant que le succes ne te monte à la tête...]
+:: P_Ce_Secu {"position":"1500,400","size":"100,100"}
+(if: $isHappy is "true" or $oneTime is "true")[Pas étonnant que ton tableau ait été volé aussi facilement, ce vigile est si facilement distrait.[[P_Ce_Secu_Reponse]] ]
+(else:)[Si tu ne voulais pas que ton œuvre soit volée, tu aurais dû l'exposer dans un musée plus sécurisé. ]
 
 
-:: P_Ch_Crime {"position":"1400,200","size":"100,100"}
-Oust, pchhhht, arrête de me suivre comme ça, tu me fais peur.
+:: P_Ce_Secu_Reponse [Reponse] {"position":"1500,200","size":"100,100"}
+Si seulement il était plus compétent...
 
 
-:: P_Ch_Exte {"position":"1100,200","size":"100,100"}
-Rhaaaaaa, oust, psssst, oust, ne t'approche pas !!!!
+:: P_Ce_Tableau {"position":"1600,400","size":"100,100"}
+(if: $oneTime is "true")[C'était notre tableau préféré... Je suis content d'avoir pu te parler.[[P_Ce_Tableau_Reponse]]]
+(else-if: $isHappy is "false")[C'était notre tableau préféré... Avant que le succès ne te monte à la tête.]
+(else:)[C'était notre tableau préféré... Je suis content d'avoir pu te parler.[[P_Ce_Tableau_Reponse]]]
 
 
-:: P_Ch_Secu {"position":"1200,200","size":"100,100"}
-Laisse-moi tranquille. Va jouer dehors avec les tiens.
+:: P_Ce_Tableau_Reponse [Reponse] {"position":"1600,200","size":"100,100"}
+Oui moi aussi.
 
 
-:: P_Ch_Tableau {"position":"1300,200","size":"100,100"}
-Haaaa mais mais comment tu as fait pour passer la sécurité ??
+:: P_Ch_Crime {"position":"1700,600","size":"100,100"}
+Oust, pchhhht, arrêtes de me suivre comme ça, tu me fais peur...
+[[Chien_Reponse]]
 
 
-:: P_E_Crime [important] {"position":"1400,300","size":"100,100"}
-(if: $oneTime is "true")[Comment fait tu, pour te reconcilier avec tes amis... (set: $oneTime to "false") (set: $isHappy to "true")]
+:: P_Ch_Exte {"position":"1400,600","size":"100,100"}
+Aaaaah ! Un chien ! Rhaaaaaa, oust, psssst, oust, ne t'approches pas !!!!
+[[Chien_Reponse]]
+
+
+:: P_Ch_Secu {"position":"1500,600","size":"100,100"}
+Laisses-moi tranquille. Va jouer dehors avec les tiens.
+[[Chien_Reponse]]
+
+
+:: P_Ch_Tableau {"position":"1600,600","size":"100,100"}
+Haaaa mais comment tu as fait pour passer la sécurité ??
+[[Chien_Reponse]]
+
+
+:: P_E_Crime [important] {"position":"1700,500","size":"100,100"}
+(if: $oneTime is "true")[Dis moi, je me suis trompé à propos d'une amie et à cause de ça j'ai fais une grosse bêtise. Qu'est-ce que tu fais, toi, quand ça t'arrive ?(set: $oneTime to "false") (set: $isHappy to "true")[[P_E_Crime_Reponse1]]]
 (else-if: $isHappy is "false")[Ne nous attardons pas sur cette artiste, elle n'a aucun intérêt...]
-(else:)[Je suis désolé mon enfant...]
+(else:)[Je suis désolé mon enfant...[[P_E_Crime_Reponse2]]]
 
 
-:: P_E_Exte {"position":"1100,300","size":"100,100"}
-(if: $isHappy is "false" )[Dans le musée, restez bien groupé et surtout pas de betise !!]
- (else:)[La mangaka est une vielle amie a moi, je pourrais lui demander un autographe pour toi si tu veux]
+:: P_E_Crime_Reponse1 [Reponse] {"position":"1900,450","size":"100,100"}
+C'est facile faut juste s'excuser, vous êtes bête monsieur !
 
 
-:: P_E_Secu {"position":"1200,300","size":"100,100"}
-(if: $isHappy is "false")[Ouvrez dès maintenent vos sac pour passer la sécurité plus rapidement. ]
-(else:)[C'est toi qui a fait rentrer le chien n'est ce pas ?]
+:: P_E_Crime_Reponse2 [Reponse] {"position":"1900,550","size":"100,100"}
+Bah pourquoi vous dites ça à moi, c'est à votre amie qu'il faut le dire !
 
 
-:: P_E_Tableau {"position":"1300,300","size":"100,100"}
-Ce tableau est vraiment un chef d'oeuvre... (if: $isHappy is "true")[Regarde ce citron ! Il est jaune, éclatant, comme un petit soleil. Sa couleur te donne de la joie, et ses ombres lui donnent de la vie. C’est un fruit simple, mais tellement spécial !]
+:: P_E_Exte {"position":"1400,500","size":"100,100"}
+(if: $isHappy is "false")[Dans le musée, restez bien groupés et pas de bêtise !]
+ (else:)[La mangaka est une vielle amie a moi, je pourrai lui demander un autographe pour toi si tu veux ?[[P_E_Exte_Reponse]]]
 
 
-:: P_P_Crime {"position":"1400,500","size":"100,100"}
+:: P_E_Exte_Reponse [Reponse] {"position":"1400,0","size":"100,100"}
+C'est vrai ??? Wow, ce serait trop cool, merci monsieur !
+
+
+:: P_E_Secu {"position":"1500,500","size":"100,100"}
+(if: $isHappy is "false")[Ouvrez dès maintenent vos sac pour passer la sécurité plus rapidement.]
+(else:)[C'est toi qui a fait rentrer le chien n'est ce pas ?[[P_E_Secu_Reponse]]]
+
+
+:: P_E_Secu_Reponse [Reponse] {"position":"1500,0","size":"100,100"}
+Héhé, je suis un expert en bêtises ! Si vous avez besoin de conseils, je suis la personne qu'il vous faut !
+
+
+:: P_E_Tableau {"position":"1600,500","size":"100,100"}
+Ce tableau est vraiment un chef d'oeuvre... (if: $isHappy is "true" or $oneTime is "true")[Regardes ce citron ! Il est jaune, éclatant, comme un petit soleil. Sa couleur te donne de la joie, et ses ombres lui donnent de la vie. C’est un fruit simple, mais tellement spécial ![[P_E_Tableau_Reponse]]]
+
+
+:: P_E_Tableau_Reponse [Reponse] {"position":"1600,0","size":"100,100"}
+Bah, c'est juste un citron quoi...
+
+
+:: P_P_Crime {"position":"1700,1100","size":"100,100"}
 
 
 
-:: P_P_Exte {"position":"1100,500","size":"100,100"}
+:: P_P_Exte {"position":"1400,1100","size":"100,100"}
 
 
 
-:: P_P_Secu {"position":"1200,500","size":"100,100"}
+:: P_P_Secu {"position":"1500,1100","size":"100,100"}
 
 
 
-:: P_P_Tableau {"position":"1300,500","size":"100,100"}
-
+:: P_P_Tableau {"position":"1600,1100","size":"100,100"}
