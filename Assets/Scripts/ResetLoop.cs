@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ResetLoop : MonoBehaviour
 {
-    string currentCharacter = "Ch";
+    string currentCharacter = "Ce";
 
     [SerializeField] SpriteSelector spriteSelector;
     [SerializeField] PnjDeplacement deplacementCh, deplacementCe, deplacementP, deplacementE;
@@ -18,9 +18,9 @@ public class ResetLoop : MonoBehaviour
     {
         switch (currentCharacter)
         {
-            case "Ch": return "Ce";
-            case "Ce": return "P";
-            case "P": return "E";
+            case "Ch": return "P";
+            case "Ce": return "E";
+            case "P": return "Ce";
             case "E": return "Ch";
         }
 
