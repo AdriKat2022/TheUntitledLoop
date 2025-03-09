@@ -85,16 +85,4 @@ public class AnimationSpriteController : MonoBehaviour
         WalkingRight,
         WalkingLeft
     }
-
-    [ButtonAction("Get Rigidbody In Parent")]
-    private void GetRidigbodyInParent()
-    {
-        _rigidbody = GetComponentInParent<Rigidbody2D>();
-    }
-
-    [ButtonAction("Get Rigidbody In Children")]
-    private void GetRigidbodyInChildren()
-    {
-        _rigidbody = GetComponentInChildren<Rigidbody2D>();
-    }
 }

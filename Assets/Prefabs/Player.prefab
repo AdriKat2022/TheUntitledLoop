@@ -1036,7 +1036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cf88fa0e4972ed42b676612add349a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 0}
+  _rigidbody: {fileID: 563811732334577757}
   _characterSpriteData: {fileID: 11400000, guid: eb1fbb7515e02c14d9692bb06eb1737d, type: 2}
   _spriteRenderer: {fileID: 2466994311168145171}
 --- !u!1 &8257867083140941979
