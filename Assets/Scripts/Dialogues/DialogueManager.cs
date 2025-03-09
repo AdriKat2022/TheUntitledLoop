@@ -92,6 +92,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
         if (forceRestart || title != null)
         {
+            Debug.Log(title);
             story.SetNextNode(title != null ? title : story.GetStart());
         }
 
