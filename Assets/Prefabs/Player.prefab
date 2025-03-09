@@ -686,6 +686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf33b2bbe466c87419d6a67294f5df4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _useFirstInteraction: 0
   _interactionInputReference: {fileID: 7285427967971010262, guid: e8b756914afcabe458e69d93a2d92d9e, type: 3}
   _interactionHint: {fileID: 8247826810513842661}
 --- !u!50 &563811732334577757

@@ -37,7 +37,7 @@ public class DialogueStarter : MonoBehaviour
             Debug.LogWarning("Player movement script is null but you want to lock it during dialogue, please assign it in the inspector or use a tag.");
         }
         _story.SetVariable("isHappy", "false");
-        _story.SetVariable("isOpen",  "false");
+        _story.SetVariable("isOpen", "false");
         _story.SetVariable("oneTime", "false");
     }
 
@@ -73,7 +73,7 @@ public class DialogueStarter : MonoBehaviour
                 _playerMouvementScript.EnableMovement();
             }
             callback?.Invoke();
-        }, _playerMouvementScript.name+"_"+name+"_"+_playerMouvementScript.zone);
+        }, _playerMouvementScript.name + "_" + name + "_" + _playerMouvementScript.zone);
     }
 
     #region Helper Methods
@@ -112,7 +112,7 @@ public class DialogueStarter : MonoBehaviour
             return playerMouvementScript;
         }
 
-        Debug.LogWarning("Player movement script not found on player object.");
+        Debug.LogWarning($"Player movement script not found on player object {player}.");
         return null;
     }
     #endregion
