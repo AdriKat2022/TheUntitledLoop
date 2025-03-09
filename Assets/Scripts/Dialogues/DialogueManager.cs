@@ -166,7 +166,7 @@ public class DialogueManager : Singleton<DialogueManager>
                 if (title == "Chien")
                 {
                     _titleText.text = "Chien";
-                    if(!abouament.isPlaying) abouament.Play();
+                    if (!abouament.isPlaying) abouament.Play();
                 }
                 else _titleText.text = GetFullName(title.Split('_')[currentNode.HasTag("Reponse") ? 1 : 0]);
             }
@@ -264,7 +264,7 @@ public class DialogueManager : Singleton<DialogueManager>
         door.SetActive(false);
 
         // TODO: Show eyes on all npcs
-        ShowNpcEyes(true);
+        ShowNpcEyes(false);
     }
 
     private void UpdateTeacherHappyness()
