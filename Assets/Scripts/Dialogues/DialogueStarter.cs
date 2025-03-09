@@ -36,6 +36,9 @@ public class DialogueStarter : MonoBehaviour
         {
             Debug.LogWarning("Player movement script is null but you want to lock it during dialogue, please assign it in the inspector or use a tag.");
         }
+        _story.SetVariable("isHappy", "false");
+        _story.SetVariable("isOpen",  "false");
+        _story.SetVariable("oneTime", "false");
     }
 
     public void StartDialogue(Action callback)

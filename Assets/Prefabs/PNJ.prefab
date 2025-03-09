@@ -96,6 +96,8 @@ GameObject:
   - component: {fileID: 563811732334577757}
   - component: {fileID: 2810057907197744528}
   - component: {fileID: 1728908681617302773}
+  - component: {fileID: 1145609573946282057}
+  - component: {fileID: 7721282723674781859}
   m_Layer: 0
   m_Name: PNJ
   m_TagString: Player
@@ -199,3 +201,50 @@ MonoBehaviour:
   _deceleration: 100
   SpeedMultiplier: 100
   _topSpeed: 2
+--- !u!114 &1145609573946282057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6745857439486121655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0090c5d96cdfe0b47911ee0cfc162393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isInteractable: 1
+  _isReusable: 1
+  _onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7721282723674781859}
+        m_TargetAssemblyTypeName: DialogueStarter, Assembly-CSharp
+        m_MethodName: StartDialogue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7721282723674781859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6745857439486121655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b969fa8b8c6ab0447a54cc132ac4d571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lockPlayerMovmement: 1
+  _useTag: 0
+  _playerMouvementScript: {fileID: 0}
+  _playerTag: Player
+  name: Ce
+  _story: {fileID: 0}
